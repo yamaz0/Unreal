@@ -9,12 +9,13 @@ class Game
 	sf::RenderWindow window;
 
 	void menu();
+	void menu2();
 
 protected:
-	enum GameState {MENU, GAME, EDITOR, END};
+	enum GameState {MENU,MENU2, GAME, EDITOR, END};
 	GameState state;
 
-	//sf::Font font;
+	sf::Font font;
 
 
 	//sf::Text text;
