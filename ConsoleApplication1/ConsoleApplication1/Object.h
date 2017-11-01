@@ -2,16 +2,15 @@
 #include <SFML/Graphics.hpp>
 class Object : public sf::Drawable
 {
-	double x, y;
+	static int amount;
+
+protected :
 	int size;//128x128
-	bool visibility;
 	bool collision;
 
 	sf::Texture texture;
 	sf::Sprite sprite;
 
-//protected :
-	//static int amount;
 
 public:
 	Object();

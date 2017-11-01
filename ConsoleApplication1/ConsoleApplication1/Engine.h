@@ -1,6 +1,9 @@
 #pragma once
-#include"Object.h"
-
+#include"GameObject.h"
+//#include"Player.h"
+//#include"Colision.h"
+//#include"Map.h"
+//#include"Text.h"
 class Engine
 {
 
