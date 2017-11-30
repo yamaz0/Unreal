@@ -3,10 +3,16 @@
 class Lever: 
 	public GameObject
 {
+	//static int amountOfObject;
+
 public:
-	Lever(float, float, Rotation, Type);
+	//static int getAmount();
+
+	Lever(float, float, Rotation, Type,sf::Texture &);
 	~Lever();
 	void switchLever();
-	void update();
+	virtual void update();
 };
+
+//int Lever::amountOfObject = 0;
 

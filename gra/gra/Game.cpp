@@ -96,7 +96,7 @@ void Game::menu()
 
 void Game::menu2()
 {
-	//Map map;
+	Map mapIO;
 	int page = 0;
 	const int number = 5;
 	sf::Text text[number];
@@ -107,10 +107,9 @@ void Game::menu2()
 	back.setPosition(x / 10, y - 100);
 	next.setPosition(x-100, y/3);
 	previous.setPosition(100 , y/3);
-	std::vector<Map::MapInfo>Names;
+	std::vector<std::string>Names;
 	if (!mapIO.loadMapsName(Names))
 	{
-	//std::cout << Names.size();
 	state = END;
 	return;
 	}
@@ -119,7 +118,7 @@ void Game::menu2()
 		if(Names.size()-1<i)
 			text[i].setString("..............");
 		else
-			text[i].setString(Names[i].name);
+			text[i].setString(Names[i]);
 
 		text[i].setFont(font);
 		text[i].setPosition(x / 3, y / (number+1)*i);
@@ -149,7 +148,7 @@ void Game::menu2()
 						if (Names.size() - 1 < tmp)
 							text[i].setString("..............");
 						else
-							text[i].setString(Names[tmp].name);
+							text[i].setString(Names[tmp]);
 					}
 				}
 			}
@@ -166,7 +165,7 @@ void Game::menu2()
 					if (Names.size() - 1< tmp)
 						text[i].setString("..............");
 					else
-						text[i].setString(Names[tmp].name);
+						text[i].setString(Names[tmp]);
 				}
 				}
 			}
@@ -175,11 +174,10 @@ void Game::menu2()
 			//Back
 				state = MENU;
 			}
-			for (int i = 0; i < number; i++)
+			for (int i = 0; i < Names.size()%number; i++)
 			{
 				if (text[i].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
 				{
-		            //std::cout << "tutaj";
 					mapIO.setMapInfo(Names[(number*page) + i]);
 					state==GAME;
 				}
@@ -190,7 +188,7 @@ void Game::menu2()
 		else
 			back.setColor(sf::Color::White);
 
-		for (int i = 0; i < number; i++)
+		for (int i = 0; i < Names.size()%number; i++)
 		{
 			if (text[i].getGlobalBounds().contains(mouse))
 				text[i].setColor(sf::Color::Yellow);
@@ -215,15 +213,12 @@ void Game::menu2()
 
 void Game::game()
 {
-	//tutaj ladowanie mapy i obiektow
-	Level level(window,mapIO);
-	if (level.loadLevel());
-	{
-	//Engine engine(window,level);
-	//engine.game();	
-	}
+	Engine engine(window);
+	if(engine.loadGame())
+	engine.game();	
 	state = MENU;
 }
 void Game::editor()
 {
+	//soon
 }

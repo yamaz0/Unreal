@@ -1,11 +1,1 @@
-mapa1 20
-mapa2 99
-mapa3 99
-mapa4 99
-mapa5 99
-mapa6 99
-mapa7 99
-mapa8 99
-mapa9 99
-m10 99
-m11 99
+mapa1

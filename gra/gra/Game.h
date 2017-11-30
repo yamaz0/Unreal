@@ -10,7 +10,6 @@ class Game
 	const int y = 600;
 	sf::RenderWindow window;
 
-	Map mapIO;
 	//Level level;
 
 	void menu();

@@ -8,8 +8,9 @@ class Gateway :
 	//vector Levers
 	std::vector <int> levers;
 public:
-	Gateway(float, float, Rotation, Type, std::vector <int>&);
+	Gateway(float, float, Rotation, Type, std::vector <int>&, sf::Texture &);
 	~Gateway();
-	void update();
+	std::vector<int> getLeversId() { return levers; }
+	virtual void update();
 };
 

@@ -7,7 +7,7 @@
 public:
 
 	///1-floor,2-wall
-	Tile(bool);
+	Tile(bool, sf::Texture &);
 	~Tile();
 
 };

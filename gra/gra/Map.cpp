@@ -27,7 +27,7 @@ bool Map::loadTextures(std::map<std::string, sf::Texture>&textures)
 
  bool Map::loadMap(int ** tab)
 {
-	std::ifstream f_map("Assets/Maps/"+mapInfo.name+"a.txt");
+	std::ifstream f_map("Assets/Maps/"+name+"a.txt");
 	if(!f_map.is_open())
 	{
 		std::cout << "Blad otwarcia pliku mapy" << std::endl;
@@ -40,7 +40,7 @@ bool Map::loadTextures(std::map<std::string, sf::Texture>&textures)
 	{
 		if(f_map >> x)
 			tab[i][j++] = x;
-		if (j > mapInfo.size - 1)
+		if (j > size - 1)
 		{
 			j = 0;
 			i++;
@@ -49,10 +49,10 @@ bool Map::loadTextures(std::map<std::string, sf::Texture>&textures)
 	return true;
 }
 
- bool Map::loadGameObjects(	 std::vector<GameObject> &objects)
+ bool Map::loadGameObjects(	 std::vector<GameObject*> &objects, std::map<std::string, sf::Texture>&textures)
  {
-
-	 std::string path= "Assets/Maps/" + mapInfo.name;
+	 const std::vector<std::string> type = { "background","lever","gateway","player","saw","ball","laser" };
+	 std::string path= "Assets/Maps/" +name;
 	 std::ifstream f_obj(path+ "Lever.txt");
 	 if (!f_obj.is_open())
 	 {
@@ -66,7 +66,7 @@ bool Map::loadTextures(std::map<std::string, sf::Texture>&textures)
 	 rotation_conversion["WEST"] = GameObject::Rotation::WEST;
 	 rotation_conversion["EAST"] = GameObject::Rotation::EAST;
 
-	 int x, y;
+	 float x, y;
 	 std::string rot;
 	 while(!f_obj.eof())
 	 {
@@ -74,7 +74,7 @@ bool Map::loadTextures(std::map<std::string, sf::Texture>&textures)
 		 f_obj >> x;
 		 f_obj >> y;
 		 f_obj >> rot;
-		 objects.push_back(new Lever(x,y, rotation_conversion[rot],GameObject::Type::LEVER));
+		 objects.push_back(new Lever(x,y, rotation_conversion[rot],GameObject::Type::LEVER,textures["lever"]));
 	 }
 	 ///////////////////////////////////////////
 	 //////////////////////////////////////////
@@ -98,9 +98,10 @@ bool Map::loadTextures(std::map<std::string, sf::Texture>&textures)
 	 }
 
 	 f_obj.close();
+	 return true;
  }
 
-bool Map::loadMapsName(std::vector<Map::MapInfo> &Names)
+bool Map::loadMapsName(std::vector<std::string> &Names)
 {
 	std::ifstream mapNames("Assets/Maps/maps.txt");
 	if (!mapNames.is_open())
@@ -108,14 +109,29 @@ bool Map::loadMapsName(std::vector<Map::MapInfo> &Names)
 		std::cout << "Blad wczytania nazw map" << std::endl;
 		return false;
 	}
-	std::string name;
-	int size;
+	std::string name_;
+
 	while (!mapNames.eof())
 	{
-		if(mapNames >> name >> size)
-		Names.push_back({ name,size });
+		if(mapNames >> name)
+		Names.push_back(name);
 	}
 	mapNames.close();
-//	std::cout << "plik";
+	return true;
+}
+
+bool Map::setMapInfo(std::string &name_)
+{
+	std::ifstream file("Assets/Maps/" + name_ + "Info.txt");
+	if (!file.is_open())
+	{
+		std::cout << "Blad otwarcia pliku Lever" << std::endl;
+		return false;
+	}
+	name = name_;
+	int size_=0;
+	file >> size_;
+	size = size_;
+	file.close();
 	return true;
 }

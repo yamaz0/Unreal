@@ -2,38 +2,17 @@
 
 
 
-Level::Level(sf::RenderWindow &win,Map &map_) :window(win),mapIO(map_)
+Level::Level()
 {
-	size = mapIO.getSize();
 
-	for (int i = 0; i<2; i++)
-		map[i] = new int[size];
 }
 
 
 Level::~Level()
 {
-	for (int i = 0; i<2; i++)
-		delete[] map[i];
-
-	delete[] map;
 }
 
-bool Level::loadLevel()
-{
-	///tutaj teraz
-	if(	
-		mapIO.loadTextures(Object::getTextures())&&
-		mapIO.loadMap(map)&&
-		mapIO.loadGameObjects(objects)
-	  )
-	return true;
-
-	return false;
-}
-
-
-void Level::drawLevel()
+void Level::drawLevel(sf::RenderWindow &window,std::vector<GameObject*>&objects,Tile tile[],int size,int *map[])
 {//Rysowanie planszy(sciany i podloga)
 	for (int i = 0; i < size; i++)
 	{
@@ -45,17 +24,6 @@ void Level::drawLevel()
 	//rysowanie obiektow 
 	for (auto it = objects.begin(); it != objects.end(); it++)
 	{
-		window.draw(*it);
+		window.draw(**it);
 	}
 } 
-
-
-void Level::update()
-{
-	for (auto it = objects.begin(); it != objects.end(); it++)
-	{
-		(*it).update();
-	}
-
-	drawLevel();
-}

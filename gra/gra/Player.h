@@ -4,8 +4,8 @@ class Player :
 	public GameObject
 {
 public:
-	Player(float, float, Rotation, Type);
+	Player(float, float, Rotation, Type, sf::Texture &);
 	~Player();
-	void update();
+	virtual void update();
 };
 

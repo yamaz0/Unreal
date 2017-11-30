@@ -3,15 +3,13 @@
 class GameObject :
 	public Object
 {
-	static int amountOfObject;
 public:
 
 	static enum Rotation{NORTH, SOUTH, EAST, WEST};
 	static enum Type{LEVER,GATEWAY,OBSTACLE,PLAYER};
 	
-	GameObject(float, float, Rotation, Type);
+	GameObject(float, float, Rotation, Type,sf::Texture &);
 	~GameObject();
-	int getAmount();
 
 	Rotation getRotate();
 
@@ -20,11 +18,8 @@ public:
 protected:
 	bool state;
 
-	int id;
-
 	const Rotation rotation;
 	const Type type;
 
 
 };
-

@@ -14,32 +14,32 @@ class Map
 {
 
 	public:
-	//Struktura przechowuj¹ca informacje o mapie(nazwa,rozmiar). 
-	struct MapInfo { std::string name; int size; }; 
-
+	
 	Map();//kontruktor domyœlny.
 	~Map();//destruktor domyœlny.
 
 	///Metoda wczytuj¹ca nazwy i rozmiary map z pliku.
-	bool loadMapsName(std::vector<MapInfo>&Names);
+	bool loadMapsName(std::vector<std::string>&Names);
 
 
-	///
-	bool loadTextures(std::map<std::string, sf::Texture>&);
+	///wczytywanie tetxtur
+ bool loadTextures(std::map<std::string, sf::Texture>&);
 	///Metoda wczytuj¹ca obiekty z pliku
-	bool loadGameObjects(std::vector<GameObject>&);
+	bool loadGameObjects(std::vector<GameObject*>&, std::map<std::string, sf::Texture>&);
 	///Metoda wczytuj¹ca mape z pliku do tablicy dwuwymiarowej.
 	bool loadMap(int **);
-	///Metoda ustawiajaca strukture mapInfo.
-	void setMapInfo(MapInfo &map) { mapInfo = map; }
+	///Metoda zapisuje nazwe mapy
+	bool setMapInfo(std::string &);
+	///Metoda zapisuje rozmiar mapy
+	void setSize(int size_) { size = size_; }
 	///Metoda zwracaj¹ca rozmiar mapy.
-	int getSize() { return mapInfo.size; }
+	int getSize() { return size; }
 	///Metoda zwracaj¹ca nazwê mapy.
-	std::string& getName() { return mapInfo.name; };
+	std::string& getName() { return name; }
 
 private:
-	MapInfo mapInfo={".........",0};
-	//std::vector<sf::Texture> textures;
-
+	std::string name;
+	int size;
+	
 };
 

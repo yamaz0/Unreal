@@ -1,9 +1,8 @@
 #include "Player.h"
 
 
-Player::Player(float x, float y, GameObject::Rotation r, GameObject::Type t) :GameObject(x, y, r, t)
+Player::Player(float x, float y, GameObject::Rotation r, GameObject::Type t, sf::Texture &texture) :GameObject(x, y, r, t, texture)
 {
-	sprite.setTexture(Object::getTextures()["player"]);
 	sprite.setTextureRect(sf::IntRect(0, 0, size, size));
 }
 

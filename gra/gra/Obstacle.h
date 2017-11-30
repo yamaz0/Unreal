@@ -8,8 +8,9 @@ class Obstacle :
 	Path path;
 
 public:
-	Obstacle();
+	Obstacle(float, float, Rotation, Type, sf::Texture &);
 	~Obstacle();
+	virtual void update();
 
 
 };
