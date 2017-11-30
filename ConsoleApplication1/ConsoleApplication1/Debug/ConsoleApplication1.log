@@ -1,8 +1,2 @@
-﻿  Game.cpp
-f:\unreal\consoleapplication1\consoleapplication1\game.cpp(58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\unreal\consoleapplication1\consoleapplication1\game.cpp(77): warning C4996: 'sf::Text::setColor': was declared deprecated
-  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-f:\unreal\consoleapplication1\consoleapplication1\game.cpp(79): warning C4996: 'sf::Text::setColor': was declared deprecated
-  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-  ConsoleApplication1.vcxproj -> F:\Unreal\ConsoleApplication1\Debug\ConsoleApplication1.exe
+﻿  ConsoleApplication1.vcxproj -> F:\Unreal\ConsoleApplication1\Debug\ConsoleApplication1.exe
   ConsoleApplication1.vcxproj -> F:\Unreal\ConsoleApplication1\Debug\ConsoleApplication1.pdb (Full PDB)

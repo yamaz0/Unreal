@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 class Object : public sf::Drawable
 {
-	static int amount;
+	//static int amount;
 
 protected :
 	int size;//128x128

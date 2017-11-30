@@ -1,12 +1,17 @@
 #include"Engine.h"
 #include <SFML/Graphics.hpp>
 //#include <SFML/Window.hpp>
+#include<iostream>
+#include<fstream>
+#include<vector>
 
 class Game
 {
 	const int x = 800;
 	const int y = 600;
 	sf::RenderWindow window;
+
+	bool loadMapsName(std::vector<std::string>&Names);
 
 	void menu();
 	void menu2();

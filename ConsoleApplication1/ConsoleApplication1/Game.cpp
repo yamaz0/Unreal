@@ -1,6 +1,5 @@
 #include"Game.h"
 //#include<string>
-#include<iostream>
 
 Game::Game()
 {
@@ -18,9 +17,25 @@ Game::~Game()
 
 }
 
+
+bool Game::loadMapsName(std::vector<std::string>&Names)
+{
+	std::ifstream mapNames("maps.txt");
+	if (!mapNames.is_open())
+	{
+		std::cout << "Blad wczytania nazw plikow" << std::endl;
+		return false;
+	}
+	std::string name;
+	while (std::getline(mapNames, name))
+		Names.push_back(name);
+	mapNames.close();
+	return true;
+}
+
 void Game::runGame()
 {
-	window.create(sf::VideoMode(x, y), "SFML window");
+	window.create(sf::VideoMode(800, 600), "SFML window");
 	window.setFramerateLimit(60);
 
 	while (state!=END)
@@ -93,15 +108,111 @@ void Game::menu()
 
 void Game::menu2()
 {
+	int page = 0;
+	const int number = 5;
+	sf::Text text[number];
+	sf::Text back("Back", font, 130);
+	sf::Text next("-->", font, 80);
+	sf::Text previous("<--", font, 80);
 
+	back.setPosition(x / 10, y - 100);
+	next.setPosition(100, y/3);
+	previous.setPosition(x-100 , y/3);
+
+	std::vector<std::string>Names;
+	loadMapsName(Names);
+
+	for (int i = 0; i<number; i++)
+	{
+		if(Names.size()<i)
+			text[i].setString("..............");
+		else
+			text[i].setString(Names[i]);
+
+		text[i].setFont(font);
+		text[i].setPosition(x / 3, y / number*i + 100);
+		text[i].setCharacterSize(65);
+	}
+
+	while (state == MENU2)
+	{
+
+		sf::Vector2f mouse(sf::Mouse::getPosition(window));
+		sf::Event event;
+		//bool isClick = false;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed || event.type == sf::Event::KeyReleased&&event.key.code == sf::Keyboard::Escape || event.type == sf::Event::MouseButtonReleased&&text[2].getGlobalBounds().contains(mouse) && event.key.code == sf::Mouse::Button::Left)
+				state = END;
+			else if (previous.getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
+			{
+				//Previous
+				page--;
+				for (int i = 0; i < number; i++)
+				{
+					int tmp = page*number + i;
+					if (Names.size()-1< tmp)
+						text[i].setString("..............");
+					else
+						text[i].setString(Names[tmp]);
+				}
+			}
+			else if (next.getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
+			{
+				//Next
+				page++;
+				for (int i = 0; i < number; i++)
+				{
+					int tmp = page*number + i;
+					if (Names.size() - 1< tmp)
+						text[i].setString("..............");
+					else
+						text[i].setString(Names[tmp]);
+				}
+			}
+			else if (back.getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
+			{
+			//Back
+				state = MENU;
+			}
+			for (int i = 0; i < number; i++)
+			{
+				if (text[i].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
+				{
+					//tutaj zapisz jaka mapa kliknieta
+					state = GAME;
+				}
+			}
+		}
+
+		for (int i = 0; i < number; i++)
+		{
+			if (text[i].getGlobalBounds().contains(mouse))
+				text[i].setColor(sf::Color::Yellow);
+			else
+				text[i].setColor(sf::Color::Black);
+		}
+
+		window.clear(sf::Color::Cyan);
+
+		window.draw(back);
+		window.draw(next);
+		window.draw(previous);
+
+		for (int i = 0; i < number; i++)
+			window.draw(text[i]);
+
+		window.display();
+
+	}
 
 }
 
 void Game::game()
 {
-	Engine engine(window);
-	engine.game();
-	state = MENU2;
+	//Engine engine(window);
+	//engine.game();
+	state = MENU;
 }
 void Game::editor()
 {

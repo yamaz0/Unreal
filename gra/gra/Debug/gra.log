@@ -1,0 +1,44 @@
+﻿  Tile.cpp
+  Text.cpp
+  Player.cpp
+  Path.cpp
+  Obstacle.cpp
+  Object.cpp
+  MapEditor.cpp
+  Map.cpp
+  main.cpp
+  Lever.cpp
+  Level.cpp
+  Gateway.cpp
+  GameObject.cpp
+  Game.cpp
+f:\unreal\gra\gra\game.cpp(53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\unreal\gra\gra\game.cpp(58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\unreal\gra\gra\game.cpp(81): warning C4996: 'sf::Text::setColor': was declared deprecated
+  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+f:\unreal\gra\gra\game.cpp(83): warning C4996: 'sf::Text::setColor': was declared deprecated
+  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+f:\unreal\gra\gra\game.cpp(107): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\unreal\gra\gra\game.cpp(108): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\unreal\gra\gra\game.cpp(109): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\unreal\gra\gra\game.cpp(119): warning C4018: '<': signed/unsigned mismatch
+f:\unreal\gra\gra\game.cpp(125): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\unreal\gra\gra\game.cpp(149): warning C4018: '<': signed/unsigned mismatch
+f:\unreal\gra\gra\game.cpp(159): warning C4018: '<': signed/unsigned mismatch
+f:\unreal\gra\gra\game.cpp(166): warning C4018: '<': signed/unsigned mismatch
+f:\unreal\gra\gra\game.cpp(184): warning C4553: '==': operator has no effect; did you intend '='?
+f:\unreal\gra\gra\game.cpp(189): warning C4996: 'sf::Text::setColor': was declared deprecated
+  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+f:\unreal\gra\gra\game.cpp(191): warning C4996: 'sf::Text::setColor': was declared deprecated
+  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+f:\unreal\gra\gra\game.cpp(196): warning C4996: 'sf::Text::setColor': was declared deprecated
+  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+f:\unreal\gra\gra\game.cpp(198): warning C4996: 'sf::Text::setColor': was declared deprecated
+  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+f:\unreal\gra\gra\game.cpp(220): warning C4390: ';': empty controlled statement found; is this the intent?
+  Engine.cpp
+  Colision.cpp
+  Generating Code...
+f:\unreal\gra\gra\map.cpp(72): warning C4715: 'Map::loadGameObjects': not all control paths return a value
+  gra.vcxproj -> F:\Unreal\gra\Debug\gra.exe
+  gra.vcxproj -> F:\Unreal\gra\Debug\gra.pdb (Full PDB)

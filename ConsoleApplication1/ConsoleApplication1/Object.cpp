@@ -4,13 +4,13 @@
 
 Object::Object()
 {
-	amount++;
+//	amount++;
 }
 
 
 Object::~Object()
 {
-	amount--;
+	//amount--;
 }
 
 void Object::draw(sf::RenderTarget& target, sf::RenderStates state) const 
@@ -20,6 +20,6 @@ void Object::draw(sf::RenderTarget& target, sf::RenderStates state) const
 
 int Object::getAmount()
 {
-	return amount;
-	//return 0;
+	//return amount;
+	return 0;
 }
