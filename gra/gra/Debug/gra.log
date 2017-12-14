@@ -1,6 +1,501 @@
-﻿  Game.cpp
-f:\unreal\gra\gra\gameobject.h(8): warning C4091: 'static ': ignored on left of 'GameObject::Rotation' when no variable is declared
-f:\unreal\gra\gra\gameobject.h(9): warning C4091: 'static ': ignored on left of 'GameObject::Type' when no variable is declared
+﻿  main.cpp
+f:\visual15\vc\include\xmemory0(671): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\xmemory0(883): note: see reference to class template instantiation 'std::allocator<_Ty>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(450): note: see reference to class template instantiation 'std::_Wrap_alloc<std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(502): note: see reference to class template instantiation 'std::_Vec_base_types<_Ty,_Alloc>' being compiled
+          with
+          [
+              _Ty=Lever &,
+              _Alloc=std::allocator<Lever &>
+          ]
+  f:\visual15\vc\include\vector(680): note: see reference to class template instantiation 'std::_Vector_alloc<std::_Vec_base_types<_Ty,_Alloc>>' being compiled
+          with
+          [
+              _Ty=Lever &,
+              _Alloc=std::allocator<Lever &>
+          ]
+  f:\unreal\gra\gra\gateway.h(13): note: see reference to class template instantiation 'std::vector<Lever &,std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(672): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(695): error C2535: 'Lever &(*std::allocator<_Ty>::address(Lever &) noexcept const)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\xmemory0(689): note: see declaration of 'std::allocator<_Ty>::address'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(816): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\xmemory0(887): note: see reference to class template instantiation 'std::allocator_traits<_Alloc>' being compiled
+          with
+          [
+              _Alloc=std::allocator<Lever &>
+          ]
+f:\visual15\vc\include\xmemory0(817): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(836): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(842): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(930): error C2535: 'Lever &(*std::_Wrap_alloc<std::allocator<_Ty>>::address(Lever &) const)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\xmemory0(924): note: see declaration of 'std::_Wrap_alloc<std::allocator<_Ty>>::address'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(158): error C2528: 'abstract declarator': pointer to reference is illegal
+  f:\visual15\vc\include\vector(453): note: see reference to class template instantiation 'std::_Is_simple_alloc<std::_Wrap_alloc<std::allocator<_Ty>>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(158): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(160): error C2528: 'abstract declarator': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(160): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\vector(461): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(175): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\vector(506): note: see reference to class template instantiation 'std::_Simple_types<Lever &>' being compiled
+f:\visual15\vc\include\xmemory0(176): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\vector(826): error C2528: '_Pval': pointer to reference is illegal
+f:\visual15\vc\include\vector(1246): error C2528: 'data': pointer to reference is illegal
+f:\visual15\vc\include\vector(1251): error C2528: 'data': pointer to reference is illegal
+f:\visual15\vc\include\vector(1276): error C2535: 'void std::vector<Lever &,std::allocator<_Ty>>::push_back(Lever &)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(895): note: see declaration of 'std::vector<Lever &,std::allocator<_Ty>>::push_back'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\vector(1359): error C2535: 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Lever &>>> std::vector<Lever &,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Lever &>>>,_Ty)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(918): note: see declaration of 'std::vector<Lever &,std::allocator<_Ty>>::insert'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\vector(1595): error C2528: '_Ptr': pointer to reference is illegal
+f:\visual15\vc\include\vector(1757): error C2528: '_Pval': pointer to reference is illegal
+  Map.cpp
+f:\visual15\vc\include\xmemory0(671): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\xmemory0(883): note: see reference to class template instantiation 'std::allocator<_Ty>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(450): note: see reference to class template instantiation 'std::_Wrap_alloc<std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(502): note: see reference to class template instantiation 'std::_Vec_base_types<_Ty,_Alloc>' being compiled
+          with
+          [
+              _Ty=Lever &,
+              _Alloc=std::allocator<Lever &>
+          ]
+  f:\visual15\vc\include\vector(680): note: see reference to class template instantiation 'std::_Vector_alloc<std::_Vec_base_types<_Ty,_Alloc>>' being compiled
+          with
+          [
+              _Ty=Lever &,
+              _Alloc=std::allocator<Lever &>
+          ]
+  f:\unreal\gra\gra\gateway.h(13): note: see reference to class template instantiation 'std::vector<Lever &,std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(672): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(695): error C2535: 'Lever &(*std::allocator<_Ty>::address(Lever &) noexcept const)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\xmemory0(689): note: see declaration of 'std::allocator<_Ty>::address'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(816): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\xmemory0(887): note: see reference to class template instantiation 'std::allocator_traits<_Alloc>' being compiled
+          with
+          [
+              _Alloc=std::allocator<Lever &>
+          ]
+f:\visual15\vc\include\xmemory0(817): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(836): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(842): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(930): error C2535: 'Lever &(*std::_Wrap_alloc<std::allocator<_Ty>>::address(Lever &) const)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\xmemory0(924): note: see declaration of 'std::_Wrap_alloc<std::allocator<_Ty>>::address'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(158): error C2528: 'abstract declarator': pointer to reference is illegal
+  f:\visual15\vc\include\vector(453): note: see reference to class template instantiation 'std::_Is_simple_alloc<std::_Wrap_alloc<std::allocator<_Ty>>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(158): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(160): error C2528: 'abstract declarator': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(160): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\vector(461): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(175): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\vector(506): note: see reference to class template instantiation 'std::_Simple_types<Lever &>' being compiled
+f:\visual15\vc\include\xmemory0(176): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\vector(826): error C2528: '_Pval': pointer to reference is illegal
+f:\visual15\vc\include\vector(1246): error C2528: 'data': pointer to reference is illegal
+f:\visual15\vc\include\vector(1251): error C2528: 'data': pointer to reference is illegal
+f:\visual15\vc\include\vector(1276): error C2535: 'void std::vector<Lever &,std::allocator<_Ty>>::push_back(Lever &)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(895): note: see declaration of 'std::vector<Lever &,std::allocator<_Ty>>::push_back'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\vector(1359): error C2535: 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Lever &>>> std::vector<Lever &,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Lever &>>>,_Ty)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(918): note: see declaration of 'std::vector<Lever &,std::allocator<_Ty>>::insert'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\vector(1595): error C2528: '_Ptr': pointer to reference is illegal
+f:\visual15\vc\include\vector(1757): error C2528: '_Pval': pointer to reference is illegal
+f:\unreal\gra\gra\map.cpp(18): warning C4018: '<': signed/unsigned mismatch
+  Level.cpp
+f:\visual15\vc\include\xmemory0(671): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\xmemory0(883): note: see reference to class template instantiation 'std::allocator<_Ty>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(450): note: see reference to class template instantiation 'std::_Wrap_alloc<std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(502): note: see reference to class template instantiation 'std::_Vec_base_types<_Ty,_Alloc>' being compiled
+          with
+          [
+              _Ty=Lever &,
+              _Alloc=std::allocator<Lever &>
+          ]
+  f:\visual15\vc\include\vector(680): note: see reference to class template instantiation 'std::_Vector_alloc<std::_Vec_base_types<_Ty,_Alloc>>' being compiled
+          with
+          [
+              _Ty=Lever &,
+              _Alloc=std::allocator<Lever &>
+          ]
+  f:\unreal\gra\gra\gateway.h(13): note: see reference to class template instantiation 'std::vector<Lever &,std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(672): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(695): error C2535: 'Lever &(*std::allocator<_Ty>::address(Lever &) noexcept const)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\xmemory0(689): note: see declaration of 'std::allocator<_Ty>::address'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(816): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\xmemory0(887): note: see reference to class template instantiation 'std::allocator_traits<_Alloc>' being compiled
+          with
+          [
+              _Alloc=std::allocator<Lever &>
+          ]
+f:\visual15\vc\include\xmemory0(817): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(836): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(842): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(930): error C2535: 'Lever &(*std::_Wrap_alloc<std::allocator<_Ty>>::address(Lever &) const)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\xmemory0(924): note: see declaration of 'std::_Wrap_alloc<std::allocator<_Ty>>::address'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(158): error C2528: 'abstract declarator': pointer to reference is illegal
+  f:\visual15\vc\include\vector(453): note: see reference to class template instantiation 'std::_Is_simple_alloc<std::_Wrap_alloc<std::allocator<_Ty>>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(158): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(160): error C2528: 'abstract declarator': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(160): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\vector(461): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(175): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\vector(506): note: see reference to class template instantiation 'std::_Simple_types<Lever &>' being compiled
+f:\visual15\vc\include\xmemory0(176): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\vector(826): error C2528: '_Pval': pointer to reference is illegal
+f:\visual15\vc\include\vector(1246): error C2528: 'data': pointer to reference is illegal
+f:\visual15\vc\include\vector(1251): error C2528: 'data': pointer to reference is illegal
+f:\visual15\vc\include\vector(1276): error C2535: 'void std::vector<Lever &,std::allocator<_Ty>>::push_back(Lever &)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(895): note: see declaration of 'std::vector<Lever &,std::allocator<_Ty>>::push_back'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\vector(1359): error C2535: 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Lever &>>> std::vector<Lever &,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Lever &>>>,_Ty)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(918): note: see declaration of 'std::vector<Lever &,std::allocator<_Ty>>::insert'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\vector(1595): error C2528: '_Ptr': pointer to reference is illegal
+f:\visual15\vc\include\vector(1757): error C2528: '_Pval': pointer to reference is illegal
+  Gateway.cpp
+f:\visual15\vc\include\xmemory0(671): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\xmemory0(883): note: see reference to class template instantiation 'std::allocator<_Ty>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(450): note: see reference to class template instantiation 'std::_Wrap_alloc<std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(502): note: see reference to class template instantiation 'std::_Vec_base_types<_Ty,_Alloc>' being compiled
+          with
+          [
+              _Ty=Lever &,
+              _Alloc=std::allocator<Lever &>
+          ]
+  f:\visual15\vc\include\vector(680): note: see reference to class template instantiation 'std::_Vector_alloc<std::_Vec_base_types<_Ty,_Alloc>>' being compiled
+          with
+          [
+              _Ty=Lever &,
+              _Alloc=std::allocator<Lever &>
+          ]
+  f:\unreal\gra\gra\gateway.h(13): note: see reference to class template instantiation 'std::vector<Lever &,std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(672): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(695): error C2535: 'Lever &(*std::allocator<_Ty>::address(Lever &) noexcept const)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\xmemory0(689): note: see declaration of 'std::allocator<_Ty>::address'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(816): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\xmemory0(887): note: see reference to class template instantiation 'std::allocator_traits<_Alloc>' being compiled
+          with
+          [
+              _Alloc=std::allocator<Lever &>
+          ]
+f:\visual15\vc\include\xmemory0(817): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(836): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(842): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(930): error C2535: 'Lever &(*std::_Wrap_alloc<std::allocator<_Ty>>::address(Lever &) const)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\xmemory0(924): note: see declaration of 'std::_Wrap_alloc<std::allocator<_Ty>>::address'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(158): error C2528: 'abstract declarator': pointer to reference is illegal
+  f:\visual15\vc\include\vector(453): note: see reference to class template instantiation 'std::_Is_simple_alloc<std::_Wrap_alloc<std::allocator<_Ty>>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(158): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(160): error C2528: 'abstract declarator': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(160): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\vector(461): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(175): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\vector(506): note: see reference to class template instantiation 'std::_Simple_types<Lever &>' being compiled
+f:\visual15\vc\include\xmemory0(176): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\vector(826): error C2528: '_Pval': pointer to reference is illegal
+f:\visual15\vc\include\vector(1246): error C2528: 'data': pointer to reference is illegal
+f:\visual15\vc\include\vector(1251): error C2528: 'data': pointer to reference is illegal
+f:\visual15\vc\include\vector(1276): error C2535: 'void std::vector<Lever &,std::allocator<_Ty>>::push_back(Lever &)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(895): note: see declaration of 'std::vector<Lever &,std::allocator<_Ty>>::push_back'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\vector(1359): error C2535: 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Lever &>>> std::vector<Lever &,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Lever &>>>,_Ty)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(918): note: see declaration of 'std::vector<Lever &,std::allocator<_Ty>>::insert'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\vector(1595): error C2528: '_Ptr': pointer to reference is illegal
+f:\visual15\vc\include\vector(1757): error C2528: '_Pval': pointer to reference is illegal
+f:\visual15\vc\include\initializer_list(24): error C2528: 'iterator': pointer to reference is illegal
+  f:\unreal\gra\gra\gateway.cpp(6): note: see reference to class template instantiation 'std::initializer_list<Lever &>' being compiled
+f:\visual15\vc\include\initializer_list(25): error C2528: 'const_iterator': pointer to reference is illegal
+f:\visual15\vc\include\initializer_list(32): error C2528: '_First_arg': pointer to reference is illegal
+f:\visual15\vc\include\initializer_list(32): error C2528: '_Last_arg': pointer to reference is illegal
+f:\visual15\vc\include\initializer_list(39): error C2528: 'begin': pointer to reference is illegal
+f:\visual15\vc\include\initializer_list(44): error C2528: 'end': pointer to reference is illegal
+f:\visual15\vc\include\initializer_list(54): error C2528: '_First': pointer to reference is illegal
+f:\visual15\vc\include\initializer_list(55): error C2528: '_Last': pointer to reference is illegal
+f:\visual15\vc\include\vector(28): error C2528: '<template-parameter>': pointer to reference is illegal
+  f:\visual15\vc\include\vector(296): note: see reference to class template instantiation 'std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Lever &>>>' being compiled
+  f:\unreal\gra\gra\gateway.cpp(27): note: see reference to class template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Lever &>>>' being compiled
+  Game.cpp
+f:\visual15\vc\include\xmemory0(671): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\xmemory0(883): note: see reference to class template instantiation 'std::allocator<_Ty>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(450): note: see reference to class template instantiation 'std::_Wrap_alloc<std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(502): note: see reference to class template instantiation 'std::_Vec_base_types<_Ty,_Alloc>' being compiled
+          with
+          [
+              _Ty=Lever &,
+              _Alloc=std::allocator<Lever &>
+          ]
+  f:\visual15\vc\include\vector(680): note: see reference to class template instantiation 'std::_Vector_alloc<std::_Vec_base_types<_Ty,_Alloc>>' being compiled
+          with
+          [
+              _Ty=Lever &,
+              _Alloc=std::allocator<Lever &>
+          ]
+  f:\unreal\gra\gra\gateway.h(13): note: see reference to class template instantiation 'std::vector<Lever &,std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(672): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(695): error C2535: 'Lever &(*std::allocator<_Ty>::address(Lever &) noexcept const)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\xmemory0(689): note: see declaration of 'std::allocator<_Ty>::address'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(816): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\xmemory0(887): note: see reference to class template instantiation 'std::allocator_traits<_Alloc>' being compiled
+          with
+          [
+              _Alloc=std::allocator<Lever &>
+          ]
+f:\visual15\vc\include\xmemory0(817): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(836): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(842): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(930): error C2535: 'Lever &(*std::_Wrap_alloc<std::allocator<_Ty>>::address(Lever &) const)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\xmemory0(924): note: see declaration of 'std::_Wrap_alloc<std::allocator<_Ty>>::address'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(158): error C2528: 'abstract declarator': pointer to reference is illegal
+  f:\visual15\vc\include\vector(453): note: see reference to class template instantiation 'std::_Is_simple_alloc<std::_Wrap_alloc<std::allocator<_Ty>>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(158): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(160): error C2528: 'abstract declarator': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(160): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\vector(461): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(175): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\vector(506): note: see reference to class template instantiation 'std::_Simple_types<Lever &>' being compiled
+f:\visual15\vc\include\xmemory0(176): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\vector(826): error C2528: '_Pval': pointer to reference is illegal
+f:\visual15\vc\include\vector(1246): error C2528: 'data': pointer to reference is illegal
+f:\visual15\vc\include\vector(1251): error C2528: 'data': pointer to reference is illegal
+f:\visual15\vc\include\vector(1276): error C2535: 'void std::vector<Lever &,std::allocator<_Ty>>::push_back(Lever &)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(895): note: see declaration of 'std::vector<Lever &,std::allocator<_Ty>>::push_back'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\vector(1359): error C2535: 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Lever &>>> std::vector<Lever &,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Lever &>>>,_Ty)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(918): note: see declaration of 'std::vector<Lever &,std::allocator<_Ty>>::insert'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\vector(1595): error C2528: '_Ptr': pointer to reference is illegal
+f:\visual15\vc\include\vector(1757): error C2528: '_Pval': pointer to reference is illegal
 f:\unreal\gra\gra\game.cpp(53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 f:\unreal\gra\gra\game.cpp(58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 f:\unreal\gra\gra\game.cpp(81): warning C4996: 'sf::Text::setColor': was declared deprecated
@@ -15,6 +510,7 @@ f:\unreal\gra\gra\game.cpp(124): warning C4244: 'argument': conversion from 'int
 f:\unreal\gra\gra\game.cpp(148): warning C4018: '<': signed/unsigned mismatch
 f:\unreal\gra\gra\game.cpp(158): warning C4018: '<': signed/unsigned mismatch
 f:\unreal\gra\gra\game.cpp(165): warning C4018: '<': signed/unsigned mismatch
+f:\unreal\gra\gra\game.cpp(177): warning C4018: '<': signed/unsigned mismatch
 f:\unreal\gra\gra\game.cpp(182): warning C4553: '==': operator has no effect; did you intend '='?
 f:\unreal\gra\gra\game.cpp(191): warning C4018: '<': signed/unsigned mismatch
 f:\unreal\gra\gra\game.cpp(187): warning C4996: 'sf::Text::setColor': was declared deprecated
@@ -25,5 +521,101 @@ f:\unreal\gra\gra\game.cpp(194): warning C4996: 'sf::Text::setColor': was declar
   f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
 f:\unreal\gra\gra\game.cpp(196): warning C4996: 'sf::Text::setColor': was declared deprecated
   f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-  gra.vcxproj -> F:\Unreal\gra\Debug\gra.exe
-  gra.vcxproj -> F:\Unreal\gra\Debug\gra.pdb (Full PDB)
+  Engine.cpp
+f:\visual15\vc\include\xmemory0(671): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\xmemory0(883): note: see reference to class template instantiation 'std::allocator<_Ty>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(450): note: see reference to class template instantiation 'std::_Wrap_alloc<std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(502): note: see reference to class template instantiation 'std::_Vec_base_types<_Ty,_Alloc>' being compiled
+          with
+          [
+              _Ty=Lever &,
+              _Alloc=std::allocator<Lever &>
+          ]
+  f:\visual15\vc\include\vector(680): note: see reference to class template instantiation 'std::_Vector_alloc<std::_Vec_base_types<_Ty,_Alloc>>' being compiled
+          with
+          [
+              _Ty=Lever &,
+              _Alloc=std::allocator<Lever &>
+          ]
+  f:\unreal\gra\gra\gateway.h(13): note: see reference to class template instantiation 'std::vector<Lever &,std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(672): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(695): error C2535: 'Lever &(*std::allocator<_Ty>::address(Lever &) noexcept const)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\xmemory0(689): note: see declaration of 'std::allocator<_Ty>::address'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(816): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\xmemory0(887): note: see reference to class template instantiation 'std::allocator_traits<_Alloc>' being compiled
+          with
+          [
+              _Alloc=std::allocator<Lever &>
+          ]
+f:\visual15\vc\include\xmemory0(817): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(836): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(842): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(930): error C2535: 'Lever &(*std::_Wrap_alloc<std::allocator<_Ty>>::address(Lever &) const)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\xmemory0(924): note: see declaration of 'std::_Wrap_alloc<std::allocator<_Ty>>::address'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(158): error C2528: 'abstract declarator': pointer to reference is illegal
+  f:\visual15\vc\include\vector(453): note: see reference to class template instantiation 'std::_Is_simple_alloc<std::_Wrap_alloc<std::allocator<_Ty>>>' being compiled
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\xmemory0(158): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(160): error C2528: 'abstract declarator': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(160): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\vector(461): error C2528: '<template-parameter>': pointer to reference is illegal
+f:\visual15\vc\include\xmemory0(175): error C2528: 'pointer': pointer to reference is illegal
+  f:\visual15\vc\include\vector(506): note: see reference to class template instantiation 'std::_Simple_types<Lever &>' being compiled
+f:\visual15\vc\include\xmemory0(176): error C2528: 'const_pointer': pointer to reference is illegal
+f:\visual15\vc\include\vector(826): error C2528: '_Pval': pointer to reference is illegal
+f:\visual15\vc\include\vector(1246): error C2528: 'data': pointer to reference is illegal
+f:\visual15\vc\include\vector(1251): error C2528: 'data': pointer to reference is illegal
+f:\visual15\vc\include\vector(1276): error C2535: 'void std::vector<Lever &,std::allocator<_Ty>>::push_back(Lever &)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(895): note: see declaration of 'std::vector<Lever &,std::allocator<_Ty>>::push_back'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\vector(1359): error C2535: 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Lever &>>> std::vector<Lever &,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Lever &>>>,_Ty)': member function already defined or declared
+          with
+          [
+              _Ty=Lever &
+          ]
+  f:\visual15\vc\include\vector(918): note: see declaration of 'std::vector<Lever &,std::allocator<_Ty>>::insert'
+          with
+          [
+              _Ty=Lever &
+          ]
+f:\visual15\vc\include\vector(1595): error C2528: '_Ptr': pointer to reference is illegal
+f:\visual15\vc\include\vector(1757): error C2528: '_Pval': pointer to reference is illegal
+  Generating Code...

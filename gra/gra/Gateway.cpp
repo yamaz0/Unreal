@@ -2,9 +2,12 @@
 
 
 
-Gateway::Gateway(float x, float y, GameObject::Rotation r, GameObject::Type t, std::vector <int>&levers_, sf::Texture &texture) :GameObject(x, y, r, t, texture),levers(levers_)
+Gateway::Gateway(float x, float y, Rotation r, Type t, VecLever &levers_, sf::Texture &texture) :GameObject(x, y, r, t, texture),levers(levers_)
 {
 	sprite.setTextureRect(sf::IntRect(0, 0, size, size));
+
+	//suma wszystkich value od levers
+
 }
 
 
@@ -12,7 +15,22 @@ Gateway::~Gateway()
 {
 }
 
-void Gateway::update()
+void Gateway::update(bool isColision)
 {
-	//jesli dzwignie beda mykniete to przejscie sie otwiera
+	if (isColision && sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+	{
+		//napisz przejscie zamkniete poszukaj dzwigni
+
+	}
+
+	short suma = 0;
+	for(auto it = levers.begin(); it != levers.end(); it++)
+	{
+		suma += (*it).getValue();
+	}
+	if (suma == gateValue)
+		state = false;
+	else
+		state = true;
+
 }

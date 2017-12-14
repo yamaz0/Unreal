@@ -12,7 +12,7 @@ Level::~Level()
 {
 }
 
-void Level::drawLevel(sf::RenderWindow &window,std::vector<GameObject*>&objects,Tile tile[],int size,int *map[])
+void Level::drawLevel(sf::RenderWindow &window,VectorGameObject &objects,Tile tile[],int size,int *map[])
 {//Rysowanie planszy(sciany i podloga)
 	for (int i = 0; i < size; i++)
 	{

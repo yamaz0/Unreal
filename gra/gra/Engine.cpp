@@ -40,16 +40,15 @@ bool Engine::loadGame()
 
 void Engine::game()
 {
-//	Player player(0,0,GameObject::SOUTH,GameObject::PLAYER);
+	Player player(0.0,0.0,SOUTH,PLAYER,textures["player"]);
 	
-	sf::Clock clock;
-	
+
 	while (state!=State::END)
 	{
 		switch (state)
 		{
 		case GAME:
-			update();
+			update(player);
 			break;
 		case MENU:
 			menu();
@@ -65,22 +64,35 @@ void Engine::game()
 void Engine::menu()
 {
 
+	sf::Vector2f mouse(sf::Mouse::getPosition(window));
 
 }
 
-void Engine::update()
+void Engine::update(Player &player)
 {
-
 
 //	player.update();
 	//level.getValue(0,0);
 
-	
+	/*
 	for (auto it = objects.begin(); it != objects.end(); it++)
 	{
 	(**it).update();
 	}
-	
+	*/
+	bool isColision;
+	for (auto it = objects.begin(); it != objects.end(); it++)
+	{
+		isColision = colision.isColision(&player, (*it));
+
+		(*it)->update(isColision);
+		if (isColision && (*it)->getType() == Type::OBSTACLE)
+		{
+			//player.death();
+		}
+
+	}
+
 	level.drawLevel(window,objects,tile,size,map);
 
 	//tutaj 

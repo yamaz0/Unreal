@@ -12,6 +12,9 @@ protected :
 public:
 	Object();
 	 ~Object();
+	 ///zwraca referencje do sprite
+	 sf::Sprite& getSprite() { return sprite; }
+	 ///metoda rysujaca obiekt
 	 void draw(sf::RenderTarget& target, sf::RenderStates state) const override;
 };
 

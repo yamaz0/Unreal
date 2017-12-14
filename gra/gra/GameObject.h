@@ -1,19 +1,22 @@
 #pragma once
 #include "Object.h"
+
+enum Rotation { NORTH, SOUTH, EAST, WEST };
+enum Type { LEVER, GATEWAY, OBSTACLE, PLAYER };
+
 class GameObject :
 	public Object
 {
 public:
 
-	static enum Rotation{NORTH, SOUTH, EAST, WEST};
-	static enum Type{LEVER,GATEWAY,OBSTACLE,PLAYER};
-	
 	GameObject(float, float, Rotation, Type,sf::Texture &);
 	~GameObject();
-
+	///zwraca w ktorym kierunku jest zwrocony obiekt
 	Rotation getRotate();
-
-	virtual void update() = 0;
+	///zwraca jakiego typu jest obiekt
+	Type getType() { return type; }
+	///funkcja czysto wirtualna 
+	virtual void update(bool) = 0;
 
 protected:
 	bool state;

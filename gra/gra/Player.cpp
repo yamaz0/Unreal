@@ -1,7 +1,7 @@
 #include "Player.h"
 
 
-Player::Player(float x, float y, GameObject::Rotation r, GameObject::Type t, sf::Texture &texture) :GameObject(x, y, r, t, texture)
+Player::Player(float x, float y, Rotation r, Type t, sf::Texture &texture) :GameObject(x, y, r, t, texture)
 {
 	sprite.setTextureRect(sf::IntRect(0, 0, size, size));
 }
@@ -9,21 +9,16 @@ Player::Player(float x, float y, GameObject::Rotation r, GameObject::Type t, sf:
 
 Player::~Player()
 {
+
 }
 
-void Player::update()
+void Player::update(bool isColision)
 {
 	/*
-	//pomysl
 	player.move(vector2f);
-	if(kolizja_z_sciana)
+	if(isColision)
 	player.move(-vector2f)
-	if(kolizja_z_dzwignia && nacis_enter)
-	dzwignia.use();
-
-	if(kolizja_z_przeszkoda)
-	player.smierc(xd);
-
+	
 	*/
 
 }

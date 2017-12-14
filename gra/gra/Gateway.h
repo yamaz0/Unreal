@@ -1,16 +1,19 @@
 #pragma once
 #include "GameObject.h"
 #include"Lever.h"
+typedef std::vector <Lever&> VecLever;
 class Gateway :
 	public GameObject
 {
-
-	//vector Levers
-	std::vector <int> levers;
+	//wartoœæ która jest zmieniana przez dŸwignie. 
+	//jeœli z dŸwigni wyjdzi wartoœæ to przejœcie
+	//otwiera siê.
+	short gateValue = 0;
+	//vector referencji do dŸwigñ
+	VecLever levers;
 public:
-	Gateway(float, float, Rotation, Type, std::vector <int>&, sf::Texture &);
+	Gateway(float, float, Rotation, Type,VecLever &, sf::Texture &);
 	~Gateway();
-	std::vector<int> getLeversId() { return levers; }
-	virtual void update();
+	 void update(bool);
 };
 

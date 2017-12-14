@@ -1,10 +1,14 @@
 #pragma once
+#include"GameObject.h"
+
+
 class Colision
 {
 public:
 	Colision();
 	~Colision();
 	
-	bool colision();
+	///Metoda sprawdza kolizje dwóch obiektów
+	bool isColision(GameObject*, GameObject*);
 };
 

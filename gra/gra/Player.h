@@ -6,6 +6,6 @@ class Player :
 public:
 	Player(float, float, Rotation, Type, sf::Texture &);
 	~Player();
-	virtual void update();
+	virtual void update(bool);
 };
 

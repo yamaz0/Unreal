@@ -12,7 +12,9 @@ class Game
 
 	//Level level;
 
+	///Metoda odpowiadajaca za pierwsze menu
 	void menu();
+	///Metoda odpowiadajaca za drugie menu
 	void menu2();
 
 protected:
@@ -30,8 +32,10 @@ protected:
 public:
 	Game();
 	~Game();
+	///Metoda, ktora steruje gra
 	void runGame();
+	///Metoda uruchamia gre
 	void game();
+	///To bedzie w przyszlosci
 	void editor();
-	void end();
 };

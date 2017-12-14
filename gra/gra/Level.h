@@ -11,7 +11,8 @@ public:
 
 	//Metoda wczytuj¹ca z pliku mapê(w postaci 0,1/floor,wall) i obiekty.
 	//bool loadLevel(Map &, std::vector<GameObject*>&);
+
 	///Metoda rysuj¹ca poziom na ekranie.
-	void drawLevel(sf::RenderWindow &,std::vector<GameObject*>&,Tile[], int,int *[]);
+	void drawLevel(sf::RenderWindow &,VectorGameObject &,Tile[], int,int *[]);
 };
 

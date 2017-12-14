@@ -10,7 +10,7 @@ Map::~Map()
 {
 
 }
-bool Map::loadTextures(std::map<std::string, sf::Texture>&textures) 
+bool Map::loadTextures(MapTexture &textures) 
 {
 	sf::Texture texture;
 	const std::vector<std::string> name = {"background","lever","gateway","player","saw","ball","laser"};
@@ -49,7 +49,7 @@ bool Map::loadTextures(std::map<std::string, sf::Texture>&textures)
 	return true;
 }
 
- bool Map::loadGameObjects(	 std::vector<GameObject*> &objects, std::map<std::string, sf::Texture>&textures)
+ bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures)
  {
 	 const std::vector<std::string> type = { "background","lever","gateway","player","saw","ball","laser" };
 	 std::string path= "Assets/Maps/" +name;
@@ -60,11 +60,11 @@ bool Map::loadTextures(std::map<std::string, sf::Texture>&textures)
 		 return false;
 	 }
 
-	 std::map < std::string, GameObject::Rotation>rotation_conversion;
-	 rotation_conversion["NORTH"] = GameObject::Rotation::NORTH;
-	 rotation_conversion["SOUTH"] = GameObject::Rotation::SOUTH;
-	 rotation_conversion["WEST"] = GameObject::Rotation::WEST;
-	 rotation_conversion["EAST"] = GameObject::Rotation::EAST;
+	 std::map < std::string, Rotation>rotation_conversion;
+	 rotation_conversion["NORTH"] = Rotation::NORTH;
+	 rotation_conversion["SOUTH"] = Rotation::SOUTH;
+	 rotation_conversion["WEST"] = Rotation::WEST;
+	 rotation_conversion["EAST"] = Rotation::EAST;
 
 	 float x, y;
 	 std::string rot;
@@ -74,19 +74,20 @@ bool Map::loadTextures(std::map<std::string, sf::Texture>&textures)
 		 f_obj >> x;
 		 f_obj >> y;
 		 f_obj >> rot;
-		 objects.push_back(new Lever(x,y, rotation_conversion[rot],GameObject::Type::LEVER,textures["lever"]));
+		 objects.push_back(new Lever(x,y, rotation_conversion[rot],Type::LEVER,textures["lever"]));
 	 }
 	 ///////////////////////////////////////////
 	 //////////////////////////////////////////
 	 f_obj.close();
 	 f_obj.open(path + "Gateway.txt");
-	 if (!f_obj.is_open())
+	 if (!f_obj.is_open()) 
 	 {
-		 std::cout << "Blad otwarcia pliku Gateway" << std::endl;
+		 std::cout 
+			 << "Blad otwarcia pliku Gateway" << std::endl;
 		 return false;
 	 }
-
-
+	 VecLever tmpLevers;
+	 tmpLevers.push_back();
 	 ///////////////////////////////////////////
 	 //////////////////////////////////////////
 	 f_obj.close();
@@ -101,7 +102,7 @@ bool Map::loadTextures(std::map<std::string, sf::Texture>&textures)
 	 return true;
  }
 
-bool Map::loadMapsName(std::vector<std::string> &Names)
+bool Map::loadMapsName(VectorString &Names)
 {
 	std::ifstream mapNames("Assets/Maps/maps.txt");
 	if (!mapNames.is_open())

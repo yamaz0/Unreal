@@ -1,7 +1,7 @@
 #include "Lever.h"
 
 
-Lever::Lever(float x, float y, GameObject::Rotation r, GameObject::Type t,sf::Texture &texture) :GameObject(x, y, r, t,texture)
+Lever::Lever(float x, float y, Rotation r, Type t,sf::Texture &texture) :GameObject(x, y, r, t,texture)
 {
 	//amountOfObject++;
 	sprite.setTextureRect(sf::IntRect(0,0,size,size));
@@ -22,7 +22,9 @@ void Lever::switchLever()
 {
 	state = !state;
 }
-void Lever::update()
+void Lever::update(bool isColision)
 {
-
+	if(isColision && sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+	//jeœli player stoi i klika enter to switchlever
+	switchLever();
 }

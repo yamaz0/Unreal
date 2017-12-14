@@ -10,6 +10,11 @@
 #include"Obstacle.h"
 #include"Player.h"
 
+
+typedef std::map<std::string, sf::Texture> MapTexture;
+typedef std::vector<GameObject*> VectorGameObject;
+typedef std::vector<std::string> VectorString;
+
 class Map
 {
 
@@ -19,13 +24,13 @@ class Map
 	~Map();//destruktor domyœlny.
 
 	///Metoda wczytuj¹ca nazwy i rozmiary map z pliku.
-	bool loadMapsName(std::vector<std::string>&Names);
+	bool loadMapsName(VectorString &);
 
 
 	///wczytywanie tetxtur
- bool loadTextures(std::map<std::string, sf::Texture>&);
+ bool loadTextures(MapTexture&);
 	///Metoda wczytuj¹ca obiekty z pliku
-	bool loadGameObjects(std::vector<GameObject*>&, std::map<std::string, sf::Texture>&);
+	bool loadGameObjects(VectorGameObject&, MapTexture&);
 	///Metoda wczytuj¹ca mape z pliku do tablicy dwuwymiarowej.
 	bool loadMap(int **);
 	///Metoda zapisuje nazwe mapy

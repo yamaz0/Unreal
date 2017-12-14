@@ -10,7 +10,7 @@ class Obstacle :
 public:
 	Obstacle(float, float, Rotation, Type, sf::Texture &);
 	~Obstacle();
-	virtual void update();
+	virtual void update(bool);
 
 
 };
