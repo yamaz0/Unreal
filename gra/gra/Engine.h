@@ -20,7 +20,7 @@ public:
 	///menu podczas gry
 	void menu();
 	///ladowanie gry
-	bool loadGame();
+	bool loadGame(std::string);
 
 private:
 	sf::RenderWindow &window;

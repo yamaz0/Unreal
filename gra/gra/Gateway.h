@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include"Lever.h"
-typedef std::vector <Lever&> VecLever;
+typedef std::vector <Lever *> VecLever;
 class Gateway :
 	public GameObject
 {
@@ -12,7 +12,7 @@ class Gateway :
 	//vector referencji do dŸwigñ
 	VecLever levers;
 public:
-	Gateway(float, float, Rotation, Type,VecLever &, sf::Texture &);
+	Gateway(float, float, Rotation, Type,VecLever &,short , sf::Texture &);
 	~Gateway();
 	 void update(bool);
 };

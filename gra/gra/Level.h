@@ -4,7 +4,8 @@
 //#include<iostream>
 
 class Level
-{	
+{
+
 public:
 	Level();//konstruktor
 	~Level();//destruktor 

@@ -9,9 +9,7 @@ class Game
 	const int x = 800;
 	const int y = 600;
 	sf::RenderWindow window;
-
-	//Level level;
-
+	std::string mapName;
 	///Metoda odpowiadajaca za pierwsze menu
 	void menu();
 	///Metoda odpowiadajaca za drugie menu

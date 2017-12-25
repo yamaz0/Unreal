@@ -3,12 +3,11 @@
 class Lever: 
 	public GameObject
 {
-	static int amountOfObject;
+	short id=0;
 	short value = 1;
 
 public:
-	//static int getAmount();
-
+	
 	Lever(float, float, Rotation, Type,sf::Texture &);
 	~Lever();
 	///Przelacza dzwignie, czyli zmienia jej stan
@@ -18,6 +17,3 @@ public:
 	///zwraca wartosc dzwigni(potrzebne do otwarcia przejsc)
 	short getValue() { return value; }
 };
-
- int Lever::amountOfObject = 0;
-

@@ -12,6 +12,8 @@ protected :
 public:
 	Object();
 	 ~Object();
+	 ///metoda zwraca rozmiar obiektu(jako kwadrat)
+	 int getSize() { return size; }
 	 ///zwraca referencje do sprite
 	 sf::Sprite& getSprite() { return sprite; }
 	 ///metoda rysujaca obiekt

@@ -17,10 +17,10 @@ Engine::~Engine()
 
 }
 
-bool Engine::loadGame()
+bool Engine::loadGame(std::string mapName_)
 {
 	Map mapIO;
-
+	mapIO.setMapInfo(mapName_);
 	 size = mapIO.getSize();
 
 	for (int i = 0; i<2; i++)
@@ -74,18 +74,13 @@ void Engine::update(Player &player)
 //	player.update();
 	//level.getValue(0,0);
 
-	/*
-	for (auto it = objects.begin(); it != objects.end(); it++)
-	{
-	(**it).update();
-	}
-	*/
 	bool isColision;
 	for (auto it = objects.begin(); it != objects.end(); it++)
 	{
 		isColision = colision.isColision(&player, (*it));
 
 		(*it)->update(isColision);
+
 		if (isColision && (*it)->getType() == Type::OBSTACLE)
 		{
 			//player.death();
@@ -104,7 +99,7 @@ void Engine::update(Player &player)
 		window.draw((**it));
 	}
 	//tutaj
-	//window.draw(player);
+	window.draw(player);
 	//do przemyslenia
 }
 

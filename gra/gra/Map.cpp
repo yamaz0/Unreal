@@ -27,7 +27,7 @@ bool Map::loadTextures(MapTexture &textures)
 
  bool Map::loadMap(int ** tab)
 {
-	std::ifstream f_map("Assets/Maps/"+name+"a.txt");
+	std::ifstream f_map("Assets/Maps/"+name+"/map.txt");
 	if(!f_map.is_open())
 	{
 		std::cout << "Blad otwarcia pliku mapy" << std::endl;
@@ -53,7 +53,7 @@ bool Map::loadTextures(MapTexture &textures)
  {
 	 const std::vector<std::string> type = { "background","lever","gateway","player","saw","ball","laser" };
 	 std::string path= "Assets/Maps/" +name;
-	 std::ifstream f_obj(path+ "Lever.txt");
+	 std::ifstream f_obj(path+ "/Lever.txt");
 	 if (!f_obj.is_open())
 	 {
 		 std::cout << "Blad otwarcia pliku Lever" << std::endl;
@@ -66,37 +66,62 @@ bool Map::loadTextures(MapTexture &textures)
 	 rotation_conversion["WEST"] = Rotation::WEST;
 	 rotation_conversion["EAST"] = Rotation::EAST;
 
+	 int i = 0;
 	 float x, y;
 	 std::string rot;
+
+
+	 VecLever levers;
+
 	 while(!f_obj.eof())
 	 {
-		 //tutaj teraz 
 		 f_obj >> x;
 		 f_obj >> y;
 		 f_obj >> rot;
-		 objects.push_back(new Lever(x,y, rotation_conversion[rot],Type::LEVER,textures["lever"]));
+		 Lever *lever = new Lever(x, y, rotation_conversion[rot], Type::LEVER, textures["lever"]);
+		 levers.push_back(lever);
+		 objects.push_back(lever);//spr
 	 }
 	 ///////////////////////////////////////////
 	 //////////////////////////////////////////
 	 f_obj.close();
-	 f_obj.open(path + "Gateway.txt");
+	 f_obj.open(path + "/Gateway.txt");
 	 if (!f_obj.is_open()) 
 	 {
 		 std::cout 
 			 << "Blad otwarcia pliku Gateway" << std::endl;
 		 return false;
 	 }
+
 	 VecLever tmpLevers;
-	 tmpLevers.push_back();
+	 i = 0;
+	 while (!f_obj.eof())
+	 {
+		 f_obj >> x;
+		 f_obj >> y;
+		 f_obj >> rot;
+		 while (f_obj >> i)
+			 tmpLevers.push_back(levers[i++]);
+
+		 int sum = 0;
+		 for (auto it = tmpLevers.begin(); it != tmpLevers.end(); it++)
+		 {
+			 sum+=(*it)->getValue();
+		 }
+
+		 objects.push_back(new Gateway(x, y, rotation_conversion[rot], Type::GATEWAY,tmpLevers,sum ,textures["gateway"]));
+		 tmpLevers.clear();
+	 }
 	 ///////////////////////////////////////////
 	 //////////////////////////////////////////
 	 f_obj.close();
-	 f_obj.open(path + "Obstacle.txt");
+	 f_obj.open(path + "/Obstacle.txt");
 	 if (!f_obj.is_open())
 	 {
 		 std::cout << "Blad otwarcia pliku Obstacle" << std::endl;
 		 return false;
 	 }
+		 //tutaj teraz 
 
 	 f_obj.close();
 	 return true;
@@ -123,7 +148,7 @@ bool Map::loadMapsName(VectorString &Names)
 
 bool Map::setMapInfo(std::string &name_)
 {
-	std::ifstream file("Assets/Maps/" + name_ + "Info.txt");
+	std::ifstream file("Assets/Maps/" + name_ + "/Info.txt");
 	if (!file.is_open())
 	{
 		std::cout << "Blad otwarcia pliku Lever" << std::endl;

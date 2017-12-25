@@ -12,7 +12,7 @@
 
 
 typedef std::map<std::string, sf::Texture> MapTexture;
-typedef std::vector<GameObject*> VectorGameObject;
+typedef std::vector<GameObject *> VectorGameObject;
 typedef std::vector<std::string> VectorString;
 
 class Map

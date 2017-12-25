@@ -2,7 +2,7 @@
 
 
 
-Gateway::Gateway(float x, float y, Rotation r, Type t, VecLever &levers_, sf::Texture &texture) :GameObject(x, y, r, t, texture),levers(levers_)
+Gateway::Gateway(float x, float y, Rotation r, Type t, VecLever &levers_,short value ,sf::Texture &texture) :GameObject(x, y, r, t, texture),levers(levers_),gateValue(value)
 {
 	sprite.setTextureRect(sf::IntRect(0, 0, size, size));
 
@@ -26,7 +26,7 @@ void Gateway::update(bool isColision)
 	short suma = 0;
 	for(auto it = levers.begin(); it != levers.end(); it++)
 	{
-		suma += (*it).getValue();
+		suma += (**it).getValue();
 	}
 	if (suma == gateValue)
 		state = false;

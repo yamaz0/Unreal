@@ -178,8 +178,9 @@ void Game::menu2()
 			{
 				if (text[i].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
 				{
-					mapIO.setMapInfo(Names[(number*page) + i]);
-					state==GAME;
+					mapName=Names[(number*page) + i];
+					state=GAME;
+					//return;
 				}
 			}
 		}
@@ -214,7 +215,7 @@ void Game::menu2()
 void Game::game()
 {
 	Engine engine(window);
-	if(engine.loadGame())
+	if(engine.loadGame(mapName))
 	engine.game();	
 	state = MENU;
 }
