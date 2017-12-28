@@ -8,7 +8,7 @@ class Lever:
 
 public:
 	
-	Lever(float, float, Rotation, Type,sf::Texture &);
+	Lever(float, float, Rotation, Type, int, sf::Texture &);
 	~Lever();
 	///Przelacza dzwignie, czyli zmienia jej stan
 	void switchLever();

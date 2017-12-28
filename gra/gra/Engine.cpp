@@ -10,7 +10,7 @@ Engine::Engine(sf::RenderWindow &window_):window(window_)
 
 Engine::~Engine()
 {
-	for (int i = 0; i<2; i++)
+	for (int i = 0; i<size; i++)
 		delete[] map[i];
 
 	delete[] map;
@@ -23,10 +23,11 @@ bool Engine::loadGame(std::string mapName_)
 	mapIO.setMapInfo(mapName_);
 	 size = mapIO.getSize();
 
-	for (int i = 0; i<2; i++)
+	for (int i = 0; i<size; i++)
 		map[i] = new int[size];
+	
+	colision.setMap(map);
 
-	///tutaj teraz
 	if ( 
 		mapIO.loadTextures(textures) &&
 		mapIO.loadMap(map) &&
@@ -40,15 +41,37 @@ bool Engine::loadGame(std::string mapName_)
 
 void Engine::game()
 {
-	Player player(0.0,0.0,SOUTH,PLAYER,textures["player"]);
-	
+	Player player(256.0,256.0,SOUTH,PLAYER,textures["player"]);
+	bool death = false;
+	//Checkpoint
+	//Text text
+
+	sf::Event event;
 
 	while (state!=State::END)
 	{
+		sf::Event event;
+
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				state = END;
+			else if (event.type == sf::Event::KeyReleased&&event.key.code == sf::Keyboard::Escape)
+			{
+				if (state == GAME)
+					state = MENU;
+				else if (state == MENU)
+					state = GAME;
+			}
+			else if (event.type == sf::Event::KeyReleased&&event.key.code == sf::Keyboard::R)
+			{
+				////jakis reset albo checkpoint
+			}
+		}
 		switch (state)
 		{
 		case GAME:
-			update(player);
+			update(player,death);
 			break;
 		case MENU:
 			menu();
@@ -68,38 +91,38 @@ void Engine::menu()
 
 }
 
-void Engine::update(Player &player)
-{
-
-//	player.update();
-	//level.getValue(0,0);
-
-	bool isColision;
-	for (auto it = objects.begin(); it != objects.end(); it++)
+void Engine::update(Player &player,bool death)
+{	
+	 
+	if (!death)
 	{
-		isColision = colision.isColision(&player, (*it));
+		player.update(true);////teraz tutaj//clock<clock+time
 
-		(*it)->update(isColision);
+			player.move(player.getVector());
+			
+		if (colision.isColision(&player))
+			player.move(-player.getVector());
 
-		if (isColision && (*it)->getType() == Type::OBSTACLE)
+		bool isColision;
+		for (auto it = objects.begin(); it != objects.end(); it++)
 		{
-			//player.death();
-		}
+			isColision = colision.isColision(&player, (*it));
 
+			(*it)->update(isColision);
+			
+			if (isColision && (*it)->getType() == Type::OBSTACLE)
+			{
+				death = true;
+			}
+
+		}
 	}
+	
+	window.clear(sf::Color::White);
 
 	level.drawLevel(window,objects,tile,size,map);
-
-	//tutaj 
-	//window.draw(player);
-	//albo
-
-	for (auto it = objects.begin(); it != objects.end(); it++)
-	{
-		window.draw((**it));
-	}
-	//tutaj
 	window.draw(player);
-	//do przemyslenia
+
+	window.display();
 }
 

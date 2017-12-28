@@ -12,6 +12,8 @@ protected :
 public:
 	Object();
 	 ~Object();
+	 ///metoda ustawia pozycje obiektu
+	 void setPosition(float , float );
 	 ///metoda zwraca rozmiar obiektu(jako kwadrat)
 	 int getSize() { return size; }
 	 ///zwraca referencje do sprite

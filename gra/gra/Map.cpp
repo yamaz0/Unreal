@@ -10,6 +10,7 @@ Map::~Map()
 {
 
 }
+
 bool Map::loadTextures(MapTexture &textures) 
 {
 	sf::Texture texture;
@@ -38,10 +39,17 @@ bool Map::loadTextures(MapTexture &textures)
 	int x = 1;
 	while(!f_map.eof())
 	{
-		if(f_map >> x)
-			tab[i][j++] = x;
+		if(i==20)
+		{
+			return true;
+		}
+		f_map >> x;
+
+		if(i<size)
+			tab[j++][i] = x;
 		if (j > size - 1)
 		{
+
 			j = 0;
 			i++;
 		}
@@ -67,6 +75,7 @@ bool Map::loadTextures(MapTexture &textures)
 	 rotation_conversion["EAST"] = Rotation::EAST;
 
 	 int i = 0;
+	 int tmp = 0;
 	 float x, y;
 	 std::string rot;
 
@@ -78,7 +87,8 @@ bool Map::loadTextures(MapTexture &textures)
 		 f_obj >> x;
 		 f_obj >> y;
 		 f_obj >> rot;
-		 Lever *lever = new Lever(x, y, rotation_conversion[rot], Type::LEVER, textures["lever"]);
+		 f_obj >> tmp;
+		 Lever *lever = new Lever(x, y, rotation_conversion[rot], Type::LEVER, tmp, textures["lever"]);
 		 levers.push_back(lever);
 		 objects.push_back(lever);//spr
 	 }
@@ -100,9 +110,12 @@ bool Map::loadTextures(MapTexture &textures)
 		 f_obj >> x;
 		 f_obj >> y;
 		 f_obj >> rot;
-		 while (f_obj >> i)
-			 tmpLevers.push_back(levers[i++]);
-
+		 f_obj >> i;
+		 for (int j = 0; j < i; j++)
+		 {
+			 f_obj >> tmp;
+			 tmpLevers.push_back(levers[tmp]);
+		 }
 		 int sum = 0;
 		 for (auto it = tmpLevers.begin(); it != tmpLevers.end(); it++)
 		 {

@@ -1,4 +1,4 @@
-﻿  Map.cpp
-f:\unreal\gra\gra\map.cpp(18): warning C4018: '<': signed/unsigned mismatch
+﻿  Colision.cpp
+f:\unreal\gra\gra\colision.cpp(38): warning C4715: 'Colision::isColision': not all control paths return a value
   gra.vcxproj -> F:\Unreal\gra\Debug\gra.exe
   gra.vcxproj -> F:\Unreal\gra\Debug\gra.pdb (Full PDB)

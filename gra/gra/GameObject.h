@@ -11,17 +11,17 @@ public:
 
 	GameObject(float, float, Rotation, Type,sf::Texture &);
 	~GameObject();
-	///zwraca w ktorym kierunku jest zwrocony obiekt
+	/// zwraca w ktorym kierunku jest zwrocony obiekt
 	Rotation getRotate();
-	///zwraca jakiego typu jest obiekt
+	/// zwraca jakiego typu jest obiekt
 	Type getType() { return type; }
-	///funkcja czysto wirtualna 
+	/// funkcja czysto wirtualna. Aktualizuje stan obiektu 
 	virtual void update(bool) = 0;
 
 protected:
 	bool state;
 
-	const Rotation rotation;
+	Rotation rotation;
 	const Type type;
 
 

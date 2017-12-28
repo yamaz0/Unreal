@@ -5,6 +5,7 @@ GameObject::GameObject(float x, float y, Rotation r,Type t,sf::Texture &texture)
 {
 	sprite.setTexture(texture);
 	sprite.setPosition(sf::Vector2f(x,y));
+	sprite.setTextureRect(sf::IntRect(0,0,128,128));
 }
 
 

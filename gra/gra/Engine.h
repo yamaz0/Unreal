@@ -16,7 +16,7 @@ public:
 	///g³ówna pêtla gry
 	void game();
 	///aktualizowanie klatki gry
-	void update(Player &);
+	void update(Player &, bool);
 	///menu podczas gry
 	void menu();
 	///ladowanie gry
@@ -28,9 +28,8 @@ private:
 	Colision colision;
 
 	Level level;
-	sf::Clock clock;
-	sf::Event event;
 
+	sf::View view;
 
 	int size;
 
@@ -45,8 +44,4 @@ private:
 	MapTexture textures;
 	//Tablica kafelek(2) pod³ogi i œciany.
 	Tile tile[2] = { Tile(false,textures["background"]),Tile(true,textures["background"]) };
-
-
-
 };
-
