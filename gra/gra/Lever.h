@@ -15,5 +15,6 @@ public:
 	///aktualizuje stan dzwigni
 	virtual void update(bool);
 	///zwraca wartosc dzwigni(potrzebne do otwarcia przejsc)
-	short getValue() { return value; }
+	short getValue() { if (state) return value; return 0; }
+	bool enterIsPressed = false;
 };

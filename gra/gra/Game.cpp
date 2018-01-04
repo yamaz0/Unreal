@@ -21,7 +21,7 @@ Game::~Game()
 
 void Game::runGame()
 {
-	window.create(sf::VideoMode(800, 600), "SFML window");
+	window.create(sf::VideoMode(768, 640), "SFML window");
 	window.setFramerateLimit(60);
 
 	while (state!=END)
@@ -219,6 +219,7 @@ void Game::game()
 	engine.game();	
 	state = MENU;
 }
+
 void Game::editor()
 {
 	//soon

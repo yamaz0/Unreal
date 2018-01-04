@@ -5,7 +5,7 @@ Player::Player(float x, float y, Rotation r, Type t, sf::Texture &texture) :Game
 {
 	size = 64;
 	sprite.setTextureRect(sf::IntRect(0, 0, size, size));
-	vector = sf::Vector2f(10,10);
+	vector = sf::Vector2f(20,20);
 }
 
 
@@ -19,10 +19,9 @@ void Player::move(sf::Vector2f vect)
 	sprite.move(vect);
 }
 
-void Player::update(bool time)
+void Player::update(bool anim)
 {
-	if(time)
-	{
+	
 	int x=0, y=0;
 	Rotation rotation_=SOUTH;
 
@@ -50,13 +49,12 @@ void Player::update(bool time)
 
 	vector = sf::Vector2f(x, y);
 
-	//animationMove(rotation_);
-	rotation = rotation_;
-	}
-	else
+	if(anim)
 	{
-		//animationDeath();
+	//animationMove(rotation_);
 	}
+	rotation = rotation_;
+	
 }
 void Player::animationDeath()
 {

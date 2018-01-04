@@ -4,16 +4,25 @@
 Engine::Engine(sf::RenderWindow &window_):window(window_)
 {
 	state = State::GAME;
-	
+	view.reset(sf::FloatRect(384, 320, 768, 640));
 }
 
 
 Engine::~Engine()
 {
+	checkpoint = nullptr;
+	delete checkpoint;
 	for (int i = 0; i<size; i++)
 		delete[] map[i];
 
 	delete[] map;
+
+	for (auto it = objects.begin(); it != objects.end(); it++)
+	{
+	delete (*it);
+	}
+
+	objects.clear();
 
 }
 
@@ -23,6 +32,8 @@ bool Engine::loadGame(std::string mapName_)
 	mapIO.setMapInfo(mapName_);
 	 size = mapIO.getSize();
 
+	 map = new int*[size];
+
 	for (int i = 0; i<size; i++)
 		map[i] = new int[size];
 	
@@ -31,7 +42,7 @@ bool Engine::loadGame(std::string mapName_)
 	if ( 
 		mapIO.loadTextures(textures) &&
 		mapIO.loadMap(map) &&
-		mapIO.loadGameObjects(objects,textures)
+		mapIO.loadGameObjects(objects,textures,&checkpoint)
 		)
 		return true;
 
@@ -41,12 +52,13 @@ bool Engine::loadGame(std::string mapName_)
 
 void Engine::game()
 {
-	Player player(256.0,256.0,SOUTH,PLAYER,textures["player"]);
+	//checkpoint = (*objects.end());
+	Player player(checkpoint->getSprite().getPosition().x, 
+		checkpoint->getSprite().getPosition().y,
+		SOUTH,PLAYER,textures["player"]);
 	bool death = false;
-	//Checkpoint
-	//Text text
-
-	sf::Event event;
+	
+	
 
 	while (state!=State::END)
 	{
@@ -65,7 +77,8 @@ void Engine::game()
 			}
 			else if (event.type == sf::Event::KeyReleased&&event.key.code == sf::Keyboard::R)
 			{
-				////jakis reset albo checkpoint
+				player.setPosition(checkpoint->getSprite().getPosition().x,
+					checkpoint->getSprite().getPosition().y);
 			}
 		}
 		switch (state)
@@ -82,26 +95,39 @@ void Engine::game()
 		}
 
 	}
+
+	window.setView(window.getDefaultView());
+
 }
 
 void Engine::menu()
 {
+	text.displayText("Enter aby wyjsc, exit aby odpauzowac.",window.getView().getCenter(),window);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return))
+		state = END;
 
-	sf::Vector2f mouse(sf::Mouse::getPosition(window));
-
+	window.display();
 }
 
 void Engine::update(Player &player,bool death)
 {	
-	 
+	bool anim = false;
+	if  (frame++ == 5) 
+	{
+		frame = 0;
+		anim = true;
+	}
+	
+
 	if (!death)
 	{
-		player.update(true);////teraz tutaj//clock<clock+time
+		player.update(anim);////teraz tutaj
 
 			player.move(player.getVector());
 			
 		if (colision.isColision(&player))
 			player.move(-player.getVector());
+
 
 		bool isColision;
 		for (auto it = objects.begin(); it != objects.end(); it++)
@@ -110,14 +136,37 @@ void Engine::update(Player &player,bool death)
 
 			(*it)->update(isColision);
 			
-			if (isColision && (*it)->getType() == Type::OBSTACLE)
+			if (isColision )
 			{
-				death = true;
+			if ( (*it)->isColider())
+			{
+				player.move(-player.getVector());
+			}
+			auto typeTmp=(*it)->getType();
+				if ( typeTmp == Type::OBSTACLE)
+					player.setPosition(checkpoint->getSprite().getPosition().x,
+						checkpoint->getSprite().getPosition().y);
+				else if( typeTmp==Type::CHECKPOINT)
+				{
+					if (!(checkpoint == (*it)))
+					{
+						checkpoint = (*it);
+					}
+				}
+				else if (typeTmp == Type::END)
+				{
+					//wygrana
+					state = END;
+					return;
+				}
+
 			}
 
 		}
 	}
-	
+
+	view.setCenter(player.getSprite().getPosition());
+	window.setView(view);
 	window.clear(sf::Color::White);
 
 	level.drawLevel(window,objects,tile,size,map);

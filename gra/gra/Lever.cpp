@@ -3,7 +3,8 @@
 
 Lever::Lever(float x, float y, Rotation r, Type t, int value_, sf::Texture &texture) :GameObject(x, y, r, t,texture),value(value_)
 {
-	sprite.setTextureRect(sf::IntRect(0,0,size,size));
+	state = true;
+	sprite.setTextureRect(sf::IntRect(state*size,r*size,size,size));
 }
 
 
@@ -15,10 +16,16 @@ Lever::~Lever()
 void Lever::switchLever()
 {
 	state = !state;
+	sprite.setTextureRect(sf::IntRect(state*size, rotation*size, size, size));
 }
 void Lever::update(bool isColision)
 {
 	//jeœli player stoi i klika enter to switchlever
-	if(isColision && sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
-	switchLever();
+	if (isColision && !enterIsPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+	{
+		enterIsPressed = true;	
+		switchLever();
+	}
+	else if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+		enterIsPressed = false;
 }

@@ -16,9 +16,9 @@ private:
 	Path path;//sciezka
 
 	sf::Vector2f vector;//wektor o ktory porusza sie obiekt
-
+	short frame_ = 0;
 	short frame = 0;
-	short maxFrame = 0;
+	short maxFrame = 4;
 
 };
 

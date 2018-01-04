@@ -14,7 +14,8 @@ Map::~Map()
 bool Map::loadTextures(MapTexture &textures) 
 {
 	sf::Texture texture;
-	const std::vector<std::string> name = {"background","lever","gateway","player","saw","ball","laser"};
+	const std::vector<std::string> name = {"background","lever","gateway","player"
+											,"saw","ball","laser","end","checkpoint"};
 	//tutaj ladowanie tekstur
 	for (int i = 0; i < name.size(); i++)
 	{
@@ -57,9 +58,9 @@ bool Map::loadTextures(MapTexture &textures)
 	return true;
 }
 
- bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures)
+ bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures, GameObject **chckpoint)
  {
-	 const std::vector<std::string> type = { "background","lever","gateway","player","saw","ball","laser" };
+	/// const std::vector<std::string> type = { "background","lever","gateway","player","saw","ball","laser" };
 	 std::string path= "Assets/Maps/" +name;
 	 std::ifstream f_obj(path+ "/Lever.txt");
 	 if (!f_obj.is_open())
@@ -91,6 +92,8 @@ bool Map::loadTextures(MapTexture &textures)
 		 Lever *lever = new Lever(x, y, rotation_conversion[rot], Type::LEVER, tmp, textures["lever"]);
 		 levers.push_back(lever);
 		 objects.push_back(lever);//spr
+	 lever = nullptr;
+	 delete lever;
 	 }
 	 ///////////////////////////////////////////
 	 //////////////////////////////////////////
@@ -125,6 +128,10 @@ bool Map::loadTextures(MapTexture &textures)
 		 objects.push_back(new Gateway(x, y, rotation_conversion[rot], Type::GATEWAY,tmpLevers,sum ,textures["gateway"]));
 		 tmpLevers.clear();
 	 }
+	 for (auto it = levers.begin(); it != levers.end(); it++)
+	 {
+		 (*it)->switchLever();
+	 }
 	 ///////////////////////////////////////////
 	 //////////////////////////////////////////
 	 f_obj.close();
@@ -134,9 +141,68 @@ bool Map::loadTextures(MapTexture &textures)
 		 std::cout << "Blad otwarcia pliku Obstacle" << std::endl;
 		 return false;
 	 }
-		 //tutaj teraz 
+		
+	 short distX, distY;
+	 short vectX, vectY;
+	 //tutaj teraz 
+	 while (!f_obj.eof())
+	 {
+
+		 f_obj >> x;
+		 f_obj >> y;
+		 f_obj >> rot;
+		 f_obj >> distX;
+		 f_obj >> distY;
+		 f_obj >> vectX;
+		 f_obj >> vectY;
+
+		 
+		 objects.push_back(new Obstacle(x, y, rotation_conversion[rot], Type::OBSTACLE,sf::Vector2f(distX*64,distY*64), sf::Vector2f(vectX,vectY), textures["saw"]));
+	 }
 
 	 f_obj.close();
+	 f_obj.open(path + "/Info.txt");
+
+	 if (!f_obj.is_open())
+	 {
+		 std::cout << "Blad otwarcia pliku info" << std::endl;
+		 return false;
+	 }
+
+
+	 while (!f_obj.eof())
+	 {
+		 f_obj >> x;
+		 f_obj >> x;
+		 f_obj >> y;
+		 f_obj >> rot;
+		 objects.push_back(new Field(x,y,rotation_conversion[rot],Type::END,textures["end"]));
+	 }
+
+	 f_obj.close();
+	 f_obj.open(path + "/Field.txt");
+
+	 if (!f_obj.is_open())
+	 {
+		 std::cout << "Blad otwarcia pliku Field" << std::endl;
+		 return false;
+	 }
+
+
+	 while (!f_obj.eof())
+	 {
+		 f_obj >> x;
+		 f_obj >> y;
+		 f_obj >> rot;
+		 GameObject *tmpField = new Field(x, y, rotation_conversion[rot], Type::CHECKPOINT, textures["checkpoint"]);
+		 (*chckpoint) = tmpField;
+		 objects.push_back(tmpField);
+		 tmpField = nullptr;
+		 delete tmpField;
+	 }
+
+	 f_obj.close();
+
 	 return true;
  }
 

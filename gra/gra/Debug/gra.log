@@ -1,4 +1,9 @@
-﻿  Colision.cpp
-f:\unreal\gra\gra\colision.cpp(38): warning C4715: 'Colision::isColision': not all control paths return a value
+﻿  Text.cpp
+  Engine.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
+  MapEditor.cpp
+  Game.cpp
   gra.vcxproj -> F:\Unreal\gra\Debug\gra.exe
   gra.vcxproj -> F:\Unreal\gra\Debug\gra.pdb (Full PDB)

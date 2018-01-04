@@ -9,7 +9,7 @@ class Player :
 	sf::Vector2f vector;
 	short frame = 0;
 	short maxFrame = 4;
-	short distance = 10;
+	short distance = 8;
 public:
 	///Konstruktor o parametrach float pozycja x, float pozycja y, Rotation kierunek ustawienia obiektu,Type typ obiektu,Texture tekstura obiektu
 	Player(float, float, Rotation, Type, sf::Texture &);

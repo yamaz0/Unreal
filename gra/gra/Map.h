@@ -5,6 +5,7 @@
 #include<string>
 
 #include"Tile.h"
+#include"Field.h"
 #include"Lever.h"
 #include"Gateway.h"
 #include"Obstacle.h"
@@ -30,7 +31,7 @@ class Map
 	///wczytywanie tetxtur
  bool loadTextures(MapTexture&);
 	///Metoda wczytuj¹ca obiekty z pliku
-	bool loadGameObjects(VectorGameObject&, MapTexture&);
+	bool loadGameObjects(VectorGameObject&, MapTexture&, GameObject **);
 	///Metoda wczytuj¹ca mape z pliku do tablicy dwuwymiarowej.
 	bool loadMap(int **);
 	///Metoda zapisuje nazwe mapy

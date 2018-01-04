@@ -1,14 +1,14 @@
 #pragma once
+#include<iostream>
+#include<SFML\Graphics.hpp>
 class Text
 {
-//	sf::Text text;
-	//text.setFont(font);
-	//text.setString("Hello world");
-	//text.setFillColor(sf::Color(69,69,69));
+	sf::Font font;
 
 
 public:
 	Text();
 	~Text();
+		void displayText(const std::string &,sf::Vector2f, sf::RenderWindow &);
 };
 

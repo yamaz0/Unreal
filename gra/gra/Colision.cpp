@@ -10,6 +10,7 @@ Colision::Colision()
 
 Colision::~Colision()
 {
+	map = nullptr;
 	delete[] map;
 }
 
@@ -35,6 +36,7 @@ bool Colision::isColision(GameObject* obj1)
 			|| map[int(obj1->getSprite().getPosition().x / 128)][int((obj1->getSprite().getPosition().y + obj1->getSize()) / 128)];
 		break;
 	}
+	return false;
 }
 
 bool Colision::isColision(GameObject* obj1, GameObject* obj2)
@@ -43,5 +45,14 @@ bool Colision::isColision(GameObject* obj1, GameObject* obj2)
 		&& obj1->getSprite().getPosition().x < obj2->getSprite().getPosition().x + obj2->getSize()
 		&& obj1->getSprite().getPosition().y + obj1->getSize() > obj2->getSprite().getPosition().y
 		&& obj1->getSprite().getPosition().y < obj2->getSprite().getPosition().y + obj2->getSize()
+		);
+}
+
+bool Colision::isColision(Object &obj1, GameObject* obj2)
+{
+	return (obj1.getSprite().getPosition().x + obj1.getSize() > obj2->getSprite().getPosition().x
+		&& obj1.getSprite().getPosition().x < obj2->getSprite().getPosition().x + obj2->getSize()
+		&& obj1.getSprite().getPosition().y + obj1.getSize() > obj2->getSprite().getPosition().y
+		&& obj1.getSprite().getPosition().y < obj2->getSprite().getPosition().y + obj2->getSize()
 		);
 }

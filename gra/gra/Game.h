@@ -15,12 +15,10 @@ class Game
 	///Metoda odpowiadajaca za drugie menu
 	void menu2();
 
-protected:
-	enum GameState {MENU,MENU2, GAME, EDITOR, END};
-	GameState state;
-
 	sf::Font font;
 
+	enum GameState {MENU,MENU2, GAME, EDITOR, END};
+	GameState state;
 
 	//sf::Text text;
 	//text.setFont(font);
