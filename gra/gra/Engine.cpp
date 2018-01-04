@@ -52,7 +52,6 @@ bool Engine::loadGame(std::string mapName_)
 
 void Engine::game()
 {
-	//checkpoint = (*objects.end());
 	Player player(checkpoint->getSprite().getPosition().x, 
 		checkpoint->getSprite().getPosition().y,
 		SOUTH,PLAYER,textures["player"]);

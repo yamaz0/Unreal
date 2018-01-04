@@ -16,7 +16,7 @@ Colision::~Colision()
 
 bool Colision::isColision(GameObject* obj1)
 {
-		std::cout << obj1->getSprite().getPosition().x / 128;
+		std::cout << (int)obj1->getSprite().getPosition().x / 128;
 	switch (obj1->getRotate())
 	{
 	case NORTH:

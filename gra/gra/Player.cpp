@@ -25,40 +25,44 @@ void Player::update(bool anim)
 	int x=0, y=0;
 	Rotation rotation_=SOUTH;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
-	{
-		x = -distance;
-		rotation_ = WEST;
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
-	{
-		x = distance;
-		rotation_ = EAST;
-	}
-
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 	{
 		y = -distance;
-		rotation_ = NORTH;
+		rotation = NORTH;
+		if (anim)
+		frame++;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
 	{
 		y = distance;
-		rotation_ = SOUTH;
+		rotation = SOUTH;
+	if(anim)
+	frame++;
 	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
+	{
+		x = -distance;
+		rotation = WEST;
+		if (anim)
+		frame++;
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+	{
+		x = distance;
+		rotation = EAST;
+		if (anim)
+		frame++;
+	}
+
 
 	vector = sf::Vector2f(x, y);
 
 	if(anim)
 	{
-	//animationMove(rotation_);
+	animationMove(rotation);
 	}
-	rotation = rotation_;
 	
-}
-void Player::animationDeath()
-{
-	//tutaj animacja smierci i ostatnia klatka zostaje na zawsze
 }
 	
 void Player::animationMove(Rotation rotation_)
@@ -68,7 +72,5 @@ void Player::animationMove(Rotation rotation_)
 		frame = 0;
 	}
 
-	sprite.setTextureRect(sf::IntRect(size*rotation_,size*frame,size,size));
-	
-	frame++;
+	sprite.setTextureRect(sf::IntRect(size*frame, size*rotation_, size,size));
 }

@@ -43,6 +43,6 @@ void Gateway::update(bool isColision)
 		sprite.setTextureRect(sf::IntRect(0, rotation*size, size, size));
 	}
 
-	std::cout << suma << "<od dzwigni od drzwi>"<<gateValue << std::endl;
+	//std::cout << suma << "<od dzwigni od drzwi>"<<gateValue << std::endl;
 
 }

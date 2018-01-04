@@ -1,9 +1,5 @@
-﻿  Text.cpp
-  Engine.cpp
+﻿  Engine.cpp
+  Colision.cpp
   Generating Code...
-  Skipping... (no relevant changes detected)
-  main.cpp
-  MapEditor.cpp
-  Game.cpp
   gra.vcxproj -> F:\Unreal\gra\Debug\gra.exe
   gra.vcxproj -> F:\Unreal\gra\Debug\gra.pdb (Full PDB)
