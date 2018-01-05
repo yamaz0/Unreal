@@ -44,7 +44,9 @@ class Map
 	std::string& getName() { return name; }
 
 private:
+	//nazwa mapy
 	std::string name;
+	//rozmiar mapy
 	int size;
 	
 };

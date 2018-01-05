@@ -3,12 +3,14 @@
 class Player :
 	public GameObject
 {
-	sf::Clock clock;
+	//sf::Clock clock;
 
-
+	//wektor do poruszania postacia
 	sf::Vector2f vector;
+
 	short frame = 0;
 	short maxFrame = 3;
+	//odleglosc o ile ma sie przesuwac postac
 	short distance = 8;
 public:
 	///Konstruktor o parametrach float pozycja x, float pozycja y, Rotation kierunek ustawienia obiektu,Type typ obiektu,Texture tekstura obiektu
@@ -25,5 +27,5 @@ public:
 	/// Animacja ruchu postaci
 	void animationMove(Rotation);
 	/// Aanimacji smierci postaci
-	void animationDeath();
+	//void animationDeath();
 };

@@ -21,10 +21,11 @@ void Gateway::update(bool isColision)
 {
 	if (isColision && sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
 	{
-		//napisz przejscie zamkniete poszukaj dzwigni
+		//przejscie zamkniete poszukaj dzwigni
 
 	}
 
+	//sprawdzanie czy mozna otworzyc drzwi
 	short suma = 0;
 	for (auto it = levers.begin(); it != levers.end(); it++)
 	{

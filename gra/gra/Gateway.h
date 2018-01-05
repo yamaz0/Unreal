@@ -12,8 +12,11 @@ class Gateway :
 	//vector referencji do dŸwigñ
 	VecLever levers;
 public:
+	///konstruktor
+	///parametry: pozycja x,y ,zwrot , typ , referencja do dzwigni, wartosc otwierajaca przejscie, tekstura
 	Gateway(float, float, Rotation, Type,VecLever &,short , sf::Texture &);
 	~Gateway();
+	//aktualizuje stan gry
 	 void update(bool);
 };
 

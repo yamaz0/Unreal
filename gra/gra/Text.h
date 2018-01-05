@@ -9,6 +9,7 @@ class Text
 public:
 	Text();
 	~Text();
+	///wyswietlanie napisu na srodku ekranu
 		void displayText(const std::string &,sf::Vector2f, sf::RenderWindow &);
 };
 

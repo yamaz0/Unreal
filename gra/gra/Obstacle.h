@@ -9,7 +9,9 @@ class Obstacle :
 public:
 	Obstacle(float, float, Rotation, Type, sf::Vector2f, sf::Vector2f, sf::Texture &);
 	~Obstacle();
+	///Metoda aktualizujaca obiekt
 	virtual void update(bool);
+	///Animowanie obiektu
 	void animationMove();
 
 private:

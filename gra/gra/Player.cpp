@@ -25,6 +25,7 @@ void Player::update(bool anim)
 	int x=0, y=0;
 	Rotation rotation_=SOUTH;
 
+	//----poruszanie postaci----------------------------
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 	{
 		y = -distance;
@@ -65,6 +66,7 @@ void Player::update(bool anim)
 	
 }
 	
+	//----animacja--------------------------------------
 void Player::animationMove(Rotation rotation_)
 {
 	if (rotation_ != rotation || frame >= maxFrame)

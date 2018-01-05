@@ -6,24 +6,30 @@
 #include"Map.h"
 class Game
 {
+	//szerokosc okna
 	const int x = 800;
+	//wysokosc okna
 	const int y = 600;
+
+	//okno programu
 	sf::RenderWindow window;
+
+	//nazwa mapy(potrzebne do wczytania wybranej mapy)
 	std::string mapName;
+
 	///Metoda odpowiadajaca za pierwsze menu
 	void menu();
 	///Metoda odpowiadajaca za drugie menu
 	void menu2();
 
+	//Czcionka
 	sf::Font font;
 
+	//typ wyliczeniowy okreslajacy stan gry
 	enum GameState {MENU,MENU2, GAME, EDITOR, END};
-	GameState state;
 
-	//sf::Text text;
-	//text.setFont(font);
-	//text.setString("Hello world");
-	//text.setFillColor(sf::Color(69,69,69));
+	//zmienna okreslajaca stan gry
+	GameState state;
 
 public:
 	Game();

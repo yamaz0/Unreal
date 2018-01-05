@@ -3,8 +3,12 @@
 class Lever: 
 	public GameObject
 {
+	//id dzwigni
 	short id=0;
+	//wartosc dzwigni
 	short value = 1;
+	//zmienna pomocnicza ograniczajaca aktywacje dzwigni
+	bool enterIsPressed = false;
 
 public:
 	
@@ -16,5 +20,4 @@ public:
 	virtual void update(bool);
 	///zwraca wartosc dzwigni(potrzebne do otwarcia przejsc)
 	short getValue() { if (state) return value; return 0; }
-	bool enterIsPressed = false;
 };

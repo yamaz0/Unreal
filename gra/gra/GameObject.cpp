@@ -10,6 +10,12 @@ GameObject::GameObject(float x, float y, Rotation r,Type t,sf::Texture &texture)
 }
 
 
+std::ostream & operator<<(std::ostream &s, GameObject *o)
+{
+	std::cout << o->getPosition().x << ", " << o->getPosition().y << std::endl;
+	return s;
+}
+
 GameObject::~GameObject()
 {
 

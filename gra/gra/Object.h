@@ -1,11 +1,14 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include<iostream>
 class Object : public sf::Drawable
 {
 
 protected :
-	int size=128;//128x128
+	int size=128;//128x128 domyslny rozmiar
+	//czy obiekt jest kolizyjny
 	bool collision;
+	//sprite obiektu
 	sf::Sprite sprite;
 
 
@@ -20,5 +23,6 @@ public:
 	 sf::Sprite& getSprite() { return sprite; }
 	 ///metoda rysujaca obiekt
 	 void draw(sf::RenderTarget& target, sf::RenderStates state) const override;
+	
 };
 

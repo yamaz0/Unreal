@@ -17,33 +17,42 @@ public:
 	///g³ówna pêtla gry
 	void game();
 	///aktualizowanie klatki gry
-	void update(Player &, bool);
+	void update(Player &);
 	///menu podczas gry
 	void menu();
 	///ladowanie gry
 	bool loadGame(std::string);
 
 private:
+	//okno programu
 	sf::RenderWindow &window;
 
+	//klasa do sprawdzania kolizji
 	Colision colision;
-
+	
+	//klasa do wyswietlania mapy
 	Level level;
 
+	//kamera
 	sf::View view;
 
+	//wielkosc mapy
 	int size;
 
+	//klasa do wyswietlania napisow
 	Text text;
 
+	//vektor wszystkich obiektow
 	std::vector<GameObject*>objects;
-	std::vector<GameObject*>levers;
+	//std::vector<GameObject*>levers;//wektor dzwigni
 
+	//typ enumeryczny stanu grry
 	enum State { GAME, MENU, END }state;
+
 	//numer klatki aktualnej
 	short frame = 0;
 
-	//pole na ktore sie teleportuje po smierci
+	//pole na ktore sie teleportuje po kolizji z przeszkoda
 	GameObject* checkpoint;
 
 	//tablica dwuwymiarowa reprezentuj¹ca mape w postaci 0-podloga 1 - sciana

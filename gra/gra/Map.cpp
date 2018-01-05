@@ -11,6 +11,7 @@ Map::~Map()
 
 }
 
+//------ladowanie tekstur z pliku-------------------
 bool Map::loadTextures(MapTexture &textures) 
 {
 	sf::Texture texture;
@@ -27,7 +28,8 @@ bool Map::loadTextures(MapTexture &textures)
 
 }
 
- bool Map::loadMap(int ** tab)
+//-----------------------wczytanie mapy do tablicy dynamicznej--------
+bool Map::loadMap(int ** tab)
 {
 	std::ifstream f_map("Assets/Maps/"+name+"/map.txt");
 	if(!f_map.is_open())
@@ -58,7 +60,8 @@ bool Map::loadTextures(MapTexture &textures)
 	return true;
 }
 
- bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures, GameObject **chckpoint)
+//------ladowanie obiektow gry----------------------
+bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures, GameObject **chckpoint)
  {
 	/// const std::vector<std::string> type = { "background","lever","gateway","player","saw","ball","laser" };
 	 std::string path= "Assets/Maps/" +name;
@@ -69,19 +72,21 @@ bool Map::loadTextures(MapTexture &textures)
 		 return false;
 	 }
 
+	 //konwersja kierunkow
 	 std::map < std::string, Rotation>rotation_conversion;
 	 rotation_conversion["NORTH"] = Rotation::NORTH;
 	 rotation_conversion["SOUTH"] = Rotation::SOUTH;
 	 rotation_conversion["WEST"] = Rotation::WEST;
 	 rotation_conversion["EAST"] = Rotation::EAST;
 
+	 //zmienne pomocnicze
 	 int i = 0;
 	 int tmp = 0;
 	 float x, y;
 	 std::string rot;
 
-
 	 VecLever levers;
+
 
 	 while(!f_obj.eof())
 	 {
@@ -91,7 +96,7 @@ bool Map::loadTextures(MapTexture &textures)
 		 f_obj >> tmp;
 		 Lever *lever = new Lever(x, y, rotation_conversion[rot], Type::LEVER, tmp, textures["lever"]);
 		 levers.push_back(lever);
-		 objects.push_back(lever);//spr
+		 objects.push_back(lever);//dodawanie obiektow do vectora obiektow
 	 lever = nullptr;
 	 delete lever;
 	 }
@@ -141,10 +146,11 @@ bool Map::loadTextures(MapTexture &textures)
 		 std::cout << "Blad otwarcia pliku Obstacle" << std::endl;
 		 return false;
 	 }
-		
+	
+	 //zmienne pomocnicze
 	 short distX, distY;
 	 short vectX, vectY;
-	 //tutaj teraz 
+
 	 while (!f_obj.eof())
 	 {
 
@@ -206,7 +212,8 @@ bool Map::loadTextures(MapTexture &textures)
 	 return true;
  }
 
-bool Map::loadMapsName(VectorString &Names)
+ //--------ladowanie nazw map------------------------
+ bool Map::loadMapsName(VectorString &Names)
 {
 	std::ifstream mapNames("Assets/Maps/maps.txt");
 	if (!mapNames.is_open())
@@ -225,6 +232,7 @@ bool Map::loadMapsName(VectorString &Names)
 	return true;
 }
 
+//------------ustawienie nazwy i wielkosci mapy-----
 bool Map::setMapInfo(std::string &name_)
 {
 	std::ifstream file("Assets/Maps/" + name_ + "/Info.txt");

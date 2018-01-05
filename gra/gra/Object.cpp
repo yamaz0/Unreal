@@ -8,7 +8,7 @@ Object::Object()
 Object::~Object()
 {
 }
-
+///ustawienie pozycji
 void Object::setPosition(float x, float y)
 {
 	sprite.setPosition(x,y);

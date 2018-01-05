@@ -36,6 +36,7 @@ void Obstacle::update(bool state_)
 	}
 }
 
+//-------animacja-----------------------------------
 void Obstacle::animationMove()
 {
 	if ( frame >= maxFrame)

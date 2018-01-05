@@ -15,6 +15,7 @@ public:
 	bool isColision(GameObject *);
 	///Metoda ustawia tablice dwuwymiarowa reprezentujaca mape
 	void setMap(int **tab) { map = tab; }
+	///Metoda sprawdza kolizje Object z GameObject
 	bool isColision(Object &obj1, GameObject* obj2);
 };
 
