@@ -51,9 +51,9 @@ void Game::menu()
 	const int number = 3;
 	const std::string texts[] = {"Play","Map editor","Exit"};
 	sf::Text text[number];
-	sf::Text title("Tytul gry",font,100);
+	sf::Text title("Bardzo fajny tytul",font,80);
 
-	title.setPosition(x/3-20,0);
+	title.setPosition(x/3-200,0);
 	for(int i =0;i<number;i++)
 	{
 		text[i].setString(texts[i]);
@@ -75,8 +75,9 @@ void Game::menu()
 			else if (text[0].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
 				state = MENU2;//jesli nacisniecie Play to przejscie do menu wyboru mapy
 			else if (text[1].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
-				state = MENU;
+			{
 				//state = EDITOR;			//wejscie w edytor mapy(nie ma)
+			}
 		}
 
 		for (int i = 0; i < number; i++)
