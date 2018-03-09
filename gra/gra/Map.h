@@ -31,7 +31,7 @@ class Map
 	///wczytywanie tetxtur
  bool loadTextures(MapTexture&);
 	///Metoda wczytuj¹ca obiekty z pliku
-	bool loadGameObjects(VectorGameObject&, MapTexture&, GameObject **);
+	bool loadGameObjects(VectorGameObject&, MapTexture&, GameObject **, GameObject **);
 	///Metoda wczytuj¹ca mape z pliku do tablicy dwuwymiarowej.
 	bool loadMap(int **);
 	///Metoda zapisuje nazwe mapy

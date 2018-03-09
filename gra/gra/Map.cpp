@@ -61,7 +61,7 @@ bool Map::loadMap(int ** tab)
 }
 
 //------ladowanie obiektow gry----------------------
-bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures, GameObject **chckpoint)
+bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures, GameObject **chckpoint, GameObject **end)
  {
 	/// const std::vector<std::string> type = { "background","lever","gateway","player","saw","ball","laser" };
 	 std::string path= "Assets/Maps/" +name;
@@ -94,7 +94,7 @@ bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures, Game
 		 f_obj >> y;
 		 f_obj >> rot;
 		 f_obj >> tmp;
-		 Lever *lever = new Lever(x, y, rotation_conversion[rot], Type::LEVER, tmp, textures["lever"]);
+		 Lever *lever = new Lever(x, y, rotation_conversion[rot], tmp, textures["lever"]);
 		 levers.push_back(lever);
 		 objects.push_back(lever);//dodawanie obiektow do vectora obiektow
 	 lever = nullptr;
@@ -130,7 +130,7 @@ bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures, Game
 			 sum+=(*it)->getValue();
 		 }
 
-		 objects.push_back(new Gateway(x, y, rotation_conversion[rot], Type::GATEWAY,tmpLevers,sum ,textures["gateway"]));
+		 objects.push_back(new Gateway(x, y, rotation_conversion[rot],tmpLevers,sum ,textures["gateway"]));
 		 tmpLevers.clear();
 	 }
 	 for (auto it = levers.begin(); it != levers.end(); it++)
@@ -163,7 +163,7 @@ bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures, Game
 		 f_obj >> vectY;
 
 		 
-		 objects.push_back(new Obstacle(x, y, rotation_conversion[rot], Type::OBSTACLE,sf::Vector2f(distX*64,distY*64), sf::Vector2f(vectX,vectY), textures["saw"]));
+		 objects.push_back(new Obstacle(x, y, rotation_conversion[rot],sf::Vector2f(distX*64,distY*64), sf::Vector2f(vectX,vectY), textures["saw"]));
 	 }
 
 	 f_obj.close();
@@ -182,7 +182,7 @@ bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures, Game
 		 f_obj >> x;
 		 f_obj >> y;
 		 f_obj >> rot;
-		 objects.push_back(new Field(x,y,rotation_conversion[rot],Type::END,textures["end"]));
+		 (*end)=new Field(x,y,rotation_conversion[rot],textures["end"]);
 	 }
 
 	 f_obj.close();
@@ -200,7 +200,7 @@ bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures, Game
 		 f_obj >> x;
 		 f_obj >> y;
 		 f_obj >> rot;
-		 GameObject *tmpField = new Field(x, y, rotation_conversion[rot], Type::CHECKPOINT, textures["checkpoint"]);
+		 GameObject *tmpField = new Field(x, y, rotation_conversion[rot], textures["checkpoint"]);
 		 (*chckpoint) = tmpField;
 		 objects.push_back(tmpField);
 		 tmpField = nullptr;

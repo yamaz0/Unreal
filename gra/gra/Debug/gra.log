@@ -1,27 +1,2 @@
-﻿  Game.cpp
-f:\unreal\gra\gra\game.cpp(56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\unreal\gra\gra\game.cpp(61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\unreal\gra\gra\game.cpp(86): warning C4996: 'sf::Text::setColor': was declared deprecated
-  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-f:\unreal\gra\gra\game.cpp(88): warning C4996: 'sf::Text::setColor': was declared deprecated
-  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-f:\unreal\gra\gra\game.cpp(114): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\unreal\gra\gra\game.cpp(115): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\unreal\gra\gra\game.cpp(116): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\unreal\gra\gra\game.cpp(129): warning C4018: '<': signed/unsigned mismatch
-f:\unreal\gra\gra\game.cpp(135): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\unreal\gra\gra\game.cpp(163): warning C4018: '<': signed/unsigned mismatch
-f:\unreal\gra\gra\game.cpp(174): warning C4018: '<': signed/unsigned mismatch
-f:\unreal\gra\gra\game.cpp(181): warning C4018: '<': signed/unsigned mismatch
-f:\unreal\gra\gra\game.cpp(194): warning C4018: '<': signed/unsigned mismatch
-f:\unreal\gra\gra\game.cpp(211): warning C4018: '<': signed/unsigned mismatch
-f:\unreal\gra\gra\game.cpp(207): warning C4996: 'sf::Text::setColor': was declared deprecated
-  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-f:\unreal\gra\gra\game.cpp(209): warning C4996: 'sf::Text::setColor': was declared deprecated
-  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-f:\unreal\gra\gra\game.cpp(214): warning C4996: 'sf::Text::setColor': was declared deprecated
-  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-f:\unreal\gra\gra\game.cpp(216): warning C4996: 'sf::Text::setColor': was declared deprecated
-  f:\unreal\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-  gra.vcxproj -> F:\Unreal\gra\Debug\gra.exe
+﻿  gra.vcxproj -> F:\Unreal\gra\Debug\gra.exe
   gra.vcxproj -> F:\Unreal\gra\Debug\gra.pdb (Full PDB)

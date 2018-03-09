@@ -21,7 +21,7 @@ void Text::displayText(const std::string &_text,sf::Vector2f position_, sf::Rend
 		sf::Text text;
 	text.setFont(font);
 	text.setCharacterSize(45);
-	text.setPosition(position_.x-_text.size()*10,position_.y);
+	text.setPosition(position_);
 	text.setString(_text);
 	text.setFillColor(sf::Color(250,69,69));
 	_window.draw(text);

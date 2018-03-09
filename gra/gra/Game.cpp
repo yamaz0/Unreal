@@ -35,8 +35,6 @@ void Game::runGame()
 			menu2(); break;
 		case Game::GAME:
 			game(); break;
-		case Game::EDITOR:
-			editor(); break;
 		case Game::END:
 			break;
 		default:
@@ -48,8 +46,8 @@ void Game::menu()
 {//menu glowne
 
 	//stworzenie napisow do wyswietlenia w menu
-	const int number = 3;
-	const std::string texts[] = {"Play","Map editor","Exit"};
+	const int number = 2;
+	const std::string texts[] = {"Play","Exit"};
 	sf::Text text[number];
 	sf::Text title("Bardzo fajny tytul",font,80);
 
@@ -70,14 +68,10 @@ void Game::menu()
 
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed || event.type == sf::Event::KeyReleased&&event.key.code == sf::Keyboard::Escape || event.type == sf::Event::MouseButtonReleased&&text[2].getGlobalBounds().contains(mouse) && event.key.code == sf::Mouse::Button::Left)
+			if (event.type == sf::Event::Closed || event.type == sf::Event::KeyReleased&&event.key.code == sf::Keyboard::Escape || event.type == sf::Event::MouseButtonReleased&&text[1].getGlobalBounds().contains(mouse) && event.key.code == sf::Mouse::Button::Left)
 				state = END;//jesli okno zostanie zamkniete lub nacisniety escape to wyjscie
 			else if (text[0].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
 				state = MENU2;//jesli nacisniecie Play to przejscie do menu wyboru mapy
-			else if (text[1].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
-			{
-				//state = EDITOR;			//wejscie w edytor mapy(nie ma)
-			}
 		}
 
 		for (int i = 0; i < number; i++)
@@ -171,7 +165,7 @@ void Game::menu2()
 			else if (next.getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
 			{
 				//Next
-				if (page<Names.size()/5)
+				if (page<(Names.size()-1)/ number)
 				{
 
 				page++;
@@ -208,7 +202,10 @@ void Game::menu2()
 		else
 			back.setColor(sf::Color::White);
 
-		for (int i = 0; i < Names.size()%number; i++)
+		int iter = 0;
+		(page == Names.size() / number ) ? (iter = Names.size() % number) : iter = number;
+
+		for (int i = 0; i < iter; i++)
 		{
 			if (text[i].getGlobalBounds().contains(mouse))
 				text[i].setColor(sf::Color::Yellow);
@@ -241,9 +238,4 @@ void Game::game()
 	engine.game();	
 	//po skonczeniu ustawienie stanu gry na MENU
 	state = MENU;
-}
-
-void Game::editor()
-{
-	//soon
 }

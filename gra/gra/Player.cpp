@@ -1,7 +1,7 @@
 #include "Player.h"
 
 
-Player::Player(float x, float y, Rotation r, Type t, sf::Texture &texture) :GameObject(x, y, r, t, texture)
+Player::Player(float x, float y, Rotation r, sf::Texture &texture,Colision &col_) :GameObject(x, y, r, texture),col(col_)
 {
 	size = 64;
 	sprite.setTextureRect(sf::IntRect(0, 0, size, size));
@@ -14,65 +14,77 @@ Player::~Player()
 
 }
 
-void Player::move(sf::Vector2f vect)
+void Player::move( )
 {
-	sprite.move(vect);
-}
-
-void Player::update(bool anim)
-{
-	
-	int x=0, y=0;
-	Rotation rotation_=SOUTH;
+	int x = 0, y = 0;
+	 rotation = SOUTH;
 
 	//----poruszanie postaci----------------------------
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 	{
+		//sf::Vector2f(x, y)
 		y = -distance;
+		//sprite.move(sf::Vector2f(0, -distance));
 		rotation = NORTH;
-		if (anim)
-		frame++;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
 	{
 		y = distance;
+		//sprite.move(sf::Vector2f(0, distance));
 		rotation = SOUTH;
-	if(anim)
-	frame++;
 	}
+
+	sprite.move(sf::Vector2f(0, y));
+
+	if(col.isColision(this))
+		sprite.move(sf::Vector2f(0, -y));
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
 	{
 		x = -distance;
 		rotation = WEST;
-		if (anim)
-		frame++;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
 	{
 		x = distance;
 		rotation = EAST;
-		if (anim)
-		frame++;
 	}
+	sprite.move(sf::Vector2f(x, 0));
 
+	if (col.isColision(this))
+		sprite.move(sf::Vector2f(-x, 0));
 
 	vector = sf::Vector2f(x, y);
 
-	if(anim)
-	{
-	animationMove(rotation);
-	}
+
+
+
+	//if(col.isColision(this))
+		//sprite.move(-vector);
+}
+
+void Player::update(bool colide)
+{
+	if(colide)
+		sprite.move(-vector);
 	
+	animationMove();	
 }
 	
 	//----animacja--------------------------------------
-void Player::animationMove(Rotation rotation_)
+void Player::animationMove()
 {
-	if (rotation_ != rotation || frame >= maxFrame)
+	frameAnim++;
+	if (frameAnim > 5)
+	{
+		frameAnim = 0;
+		frame++;
+	}
+
+	if (vector==sf::Vector2f(0,0) || frame >= maxFrame)
 	{
 		frame = 0;
 	}
 
-	sprite.setTextureRect(sf::IntRect(size*frame, size*rotation_, size,size));
+	sprite.setTextureRect(sf::IntRect(size*frame, size*rotation, size,size));
 }

@@ -42,7 +42,7 @@ bool Engine::loadGame(std::string mapName_)
 	if ( 
 		mapIO.loadTextures(textures) &&//wczytywanie tekstur
 		mapIO.loadMap(map) &&//wczytanie mapy do tablicy dynamicznej
-		mapIO.loadGameObjects(objects,textures,&checkpoint)//wczytanie wszystkich obiektow
+		mapIO.loadGameObjects(objects,textures,&checkpoint,&end)//wczytanie wszystkich obiektow
 		)//jesli sie powiodlo zwroc true w przeciwnym wypadku false
 		return true;
 
@@ -54,7 +54,7 @@ void Engine::game()
 {
 	Player player(checkpoint->getSprite().getPosition().x, 
 		checkpoint->getSprite().getPosition().y,
-		SOUTH,PLAYER,textures["player"]);//stworzenie gracza
+		SOUTH,textures["player"],colision);//stworzenie gracza
 	//bool death = false;
 	
 	
@@ -102,8 +102,10 @@ void Engine::game()
 
 void Engine::menu()
 {
+	auto center = window.getView().getCenter();
 	//wyswietlenie tekstu o mozliwosci wyjscia do menu
-	text.displayText("Enter aby wyjsc, exit aby odpauzowac.",window.getView().getCenter(),window);
+	text.displayText("Enter aby wyjsc",sf::Vector2f(center.x-250,center.y+50) , window);
+	text.displayText("ESC aby odpauzowac", sf::Vector2f(center.x - 250, center.y - 50), window);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return))
 		state = END;
 
@@ -112,22 +114,17 @@ void Engine::menu()
 
 void Engine::update(Player &player)
 {	
-	bool anim = false;//zmienna pomocnicza do animacji
-	if  (frame++ == 5) 
+	player.move();//sterowanie postaci
+	if (colision.isColision(&player, end))
 	{
-		frame = 0;
-		anim = true;
+		//wygranko
+		state = END;
+		return;
 	}
-	
-		player.update(anim);//aktualizuje stan gracza
-
-			player.move(player.getVector());//przesuwa postac
-			
-		if (colision.isColision(&player))//jesli kolizja z sciana to cofa gracza
-			player.move(-player.getVector());
-
 
 		bool isColision;//zmienna pomocnicza do przechowania czy wystapila kolizja
+		bool playerColision = false;//zmienna pomocnicza do kolizji gracza z obiektem
+
 		for (auto it = objects.begin(); it != objects.end(); it++)
 		{
 			isColision = colision.isColision(&player, (*it));//ustawienie zmiennej isColision
@@ -138,28 +135,24 @@ void Engine::update(Player &player)
 			{
 			if ( (*it)->isColider())//sprawdza czy kolizja zaszla z obiektem kolizyjnym
 			{
-				player.move(-player.getVector());//jesli tak to cofa postac
+				playerColision = true;//jesli tak to ustawia kolizje postaci
 			}
-			auto typeTmp=(*it)->getType();//zmienna pomocnicza przechowujaca typ obiektu
-				if ( typeTmp == Type::OBSTACLE)//jesli przeszkoda to cofa postac do checkpointu
+			if ( typeid(**it)==typeid(Obstacle))//jesli przeszkoda to cofa postac do checkpointu
 					player.setPosition(checkpoint->getSprite().getPosition().x,
 						checkpoint->getSprite().getPosition().y);
-				else if( typeTmp==Type::CHECKPOINT)//jesli checkpoint to ustawia jako aktywny
+				else if(typeid(**it) == typeid(Field))//jesli checkpoint to ustawia jako aktywny
 				{
 					if (!(checkpoint == (*it)))
 					{
+						dynamic_cast<Field*>(checkpoint)->disable();
 						checkpoint = (*it);
 					}
 				}
-				else if (typeTmp == Type::END)//jesli dojdzie do konca to idzie do menu
-				{
-					//wygrana
-					state = END;
-					return;
-				}
-
 			}
 	}
+
+		player.update(playerColision);//aktualizuje stan gracza
+
 		//ustawienie srodka kamery na graczu
 	view.setCenter(player.getSprite().getPosition());
 	window.setView(view);//przypisanie kamery do okna 

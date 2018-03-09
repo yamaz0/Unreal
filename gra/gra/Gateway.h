@@ -14,7 +14,7 @@ class Gateway :
 public:
 	///konstruktor
 	///parametry: pozycja x,y ,zwrot , typ , referencja do dzwigni, wartosc otwierajaca przejscie, tekstura
-	Gateway(float, float, Rotation, Type,VecLever &,short , sf::Texture &);
+	Gateway(float, float, Rotation, VecLever &,short , sf::Texture &);
 	~Gateway();
 	//aktualizuje stan gry
 	 void update(bool);

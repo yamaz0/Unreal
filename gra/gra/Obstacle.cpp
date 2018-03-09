@@ -2,7 +2,7 @@
 
 
 
-Obstacle::Obstacle(float x, float y, Rotation r, Type t, sf::Vector2f dist, sf::Vector2f vect, sf::Texture &texture) :GameObject(x, y, r, t, texture), vector(vect)
+Obstacle::Obstacle(float x, float y, Rotation r, sf::Vector2f dist, sf::Vector2f vect, sf::Texture &texture) :GameObject(x, y, r, texture), vector(vect)
 {
 	state = true;
 	size = 64;

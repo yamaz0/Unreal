@@ -1,7 +1,7 @@
 #include "GameObject.h"
 
 
-GameObject::GameObject(float x, float y, Rotation r,Type t,sf::Texture &texture):rotation(r),type(t)
+GameObject::GameObject(float x, float y, Rotation r,sf::Texture &texture):rotation(r)
 {
 	collision = false;
 	sprite.setTexture(texture);

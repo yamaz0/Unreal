@@ -4,6 +4,7 @@
 #include"Field.h"
 #include"Player.h"
 #include"Colision.h"
+#include<typeinfo>
 //#include"Map.h"
 #include"Text.h"
 class Engine
@@ -54,6 +55,9 @@ private:
 
 	//pole na ktore sie teleportuje po kolizji z przeszkoda
 	GameObject* checkpoint;
+
+	//pole konca
+	GameObject* end;
 
 	//tablica dwuwymiarowa reprezentuj¹ca mape w postaci 0-podloga 1 - sciana
 	int **map = nullptr;

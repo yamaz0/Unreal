@@ -2,7 +2,7 @@
 #include<iostream>
 
 
-Gateway::Gateway(float x, float y, Rotation r, Type t, VecLever &levers_,short value ,sf::Texture &texture) :GameObject(x, y, r, t, texture),levers(levers_),gateValue(value)
+Gateway::Gateway(float x, float y, Rotation r,  VecLever &levers_,short value ,sf::Texture &texture) :GameObject(x, y, r, texture),levers(levers_),gateValue(value)
 {
 	state = true;
 	sprite.setTextureRect(sf::IntRect(state*size, r*size, size, size));
