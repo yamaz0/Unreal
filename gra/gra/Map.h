@@ -10,6 +10,8 @@
 #include"Gateway.h"
 #include"Obstacle.h"
 #include"Player.h"
+#include"Buton.h"
+#include"Trap.h"
 
 
 typedef std::map<std::string, sf::Texture> MapTexture;

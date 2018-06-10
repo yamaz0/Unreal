@@ -2,7 +2,7 @@
 #include<iostream>
 
 
-Gateway::Gateway(float x, float y, Rotation r,  VecLever &levers_,short value ,sf::Texture &texture) :GameObject(x, y, r, texture),levers(levers_),gateValue(value)
+Gateway::Gateway(float x, float y, Rotation r,  VecLever &levers_ ,sf::Texture &texture) :GameObject(x, y, r, texture),levers(levers_)
 {
 	state = true;
 	sprite.setTextureRect(sf::IntRect(state*size, r*size, size, size));
@@ -26,12 +26,15 @@ void Gateway::update(bool isColision)
 	}
 
 	//sprawdzanie czy mozna otworzyc drzwi
-	short suma = 0;
-	for (auto it = levers.begin(); it != levers.end(); it++)
+	bool isOpen = true;
+	for (auto it = levers.begin(); it != levers.end() && isOpen; it++)
 	{
-		suma += (**it).getValue();
+		if (!(*it)->getState())
+		{
+			isOpen = false;
+		}
 	}
-	if (suma == gateValue)
+	if (isOpen)
 	{
 		state = false;
 		collision = false;

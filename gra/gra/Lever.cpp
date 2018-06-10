@@ -1,9 +1,9 @@
 #include "Lever.h"
 
 
-Lever::Lever(float x, float y, Rotation r, int value_, sf::Texture &texture) :GameObject(x, y, r, texture),value(value_)
+Lever::Lever(float x, float y, Rotation r, sf::Texture &texture) :GameObject(x, y, r, texture)
 {
-	state = true;
+	state = false;
 	sprite.setTextureRect(sf::IntRect(state*size,r*size,size,size));
 }
 

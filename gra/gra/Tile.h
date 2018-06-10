@@ -6,7 +6,7 @@
 
 public:
 
-	///1-floor,2-wall
+	///0-floor,1-wall
 	Tile(bool, sf::Texture &);
 	~Tile();
 

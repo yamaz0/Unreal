@@ -52,11 +52,13 @@ bool Engine::loadGame(std::string mapName_)
 
 void Engine::game()
 {
+	checkpoint = objects[objects.size()-1];
+	checkpoint->setState(true);
+	
 	Player player(checkpoint->getSprite().getPosition().x, 
 		checkpoint->getSprite().getPosition().y,
 		SOUTH,textures["player"],colision);//stworzenie gracza
 	//bool death = false;
-	
 	
 
 	while (state!=State::END)
@@ -102,6 +104,8 @@ void Engine::game()
 
 void Engine::menu()
 {
+
+	window.clear(sf::Color::White);//czyszczenie ekranu
 	auto center = window.getView().getCenter();
 	//wyswietlenie tekstu o mozliwosci wyjscia do menu
 	text.displayText("Enter aby wyjsc",sf::Vector2f(center.x-250,center.y+50) , window);
@@ -131,16 +135,22 @@ void Engine::update(Player &player)
 
 			(*it)->update(isColision);//aktualizowanie stanu obiektu
 			
+			if (typeid(**it) == typeid(Obstacle))//jesli obstacle to animuje kolejna klatke
+			{
+				if (frame_++ % 5 == 0)
+				dynamic_cast<Obstacle*>(*it)->animationMove();
+			}
+
 			if (isColision )
 			{
 			if ( (*it)->isColider())//sprawdza czy kolizja zaszla z obiektem kolizyjnym
 			{
-				playerColision = true;//jesli tak to ustawia kolizje postaci
+			if (typeid(**it) == typeid(Obstacle) || typeid(**it) == typeid(Trap))//jesli przeszkoda to cofa postac do checkpointu
+			{
+				player.setPosition(checkpoint->getSprite().getPosition().x,
+					checkpoint->getSprite().getPosition().y);
 			}
-			if ( typeid(**it)==typeid(Obstacle))//jesli przeszkoda to cofa postac do checkpointu
-					player.setPosition(checkpoint->getSprite().getPosition().x,
-						checkpoint->getSprite().getPosition().y);
-				else if(typeid(**it) == typeid(Field))//jesli checkpoint to ustawia jako aktywny
+			else if(typeid(**it) == typeid(Field))//jesli checkpoint to ustawia jako aktywny
 				{
 					if (!(checkpoint == (*it)))
 					{
@@ -148,6 +158,9 @@ void Engine::update(Player &player)
 						checkpoint = (*it);
 					}
 				}
+			else
+				playerColision = true;//jesli tak to ustawia kolizje postaci
+			}
 			}
 	}
 
@@ -162,5 +175,12 @@ void Engine::update(Player &player)
 	window.draw(player);//rysowanie gracza
 
 	window.display();//wyswietlenie 
+
+
+
+		frame_++;
+	if (frame_> 1000)
+		frame_ = 0;
+
 }
 

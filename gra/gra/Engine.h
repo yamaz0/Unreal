@@ -50,8 +50,8 @@ private:
 	//typ enumeryczny stanu grry
 	enum State { GAME, MENU, END }state;
 
-	//numer klatki aktualnej
-	short frame = 0;
+	//do animacji
+	short frame_ = 0;
 
 	//pole na ktore sie teleportuje po kolizji z przeszkoda
 	GameObject* checkpoint;

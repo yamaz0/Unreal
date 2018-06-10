@@ -16,7 +16,7 @@ bool Map::loadTextures(MapTexture &textures)
 {
 	sf::Texture texture;
 	const std::vector<std::string> name = {"background","lever","gateway","player"
-											,"saw","ball","laser","end","checkpoint"};
+											,"saw","ball","laser","end","checkpoint","button"};
 	//tutaj ladowanie tekstur
 	for (int i = 0; i < name.size(); i++)
 	{
@@ -93,13 +93,60 @@ bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures, Game
 		 f_obj >> x;
 		 f_obj >> y;
 		 f_obj >> rot;
-		 f_obj >> tmp;
-		 Lever *lever = new Lever(x, y, rotation_conversion[rot], tmp, textures["lever"]);
+		 Lever *lever = new Lever(x, y, rotation_conversion[rot], textures["lever"]);
 		 levers.push_back(lever);
 		 objects.push_back(lever);//dodawanie obiektow do vectora obiektow
 	 lever = nullptr;
 	 delete lever;
 	 }
+
+	 ///////////////////////////////////////////
+	 //////////////////////////////////////////
+
+	 
+	 f_obj.close();
+	 f_obj.open(path + "/Button.txt");
+	 if (!f_obj.is_open())
+	 {
+		 std::cout << "Blad otwarcia pliku Button" << std::endl;
+		 return false;
+	 }
+
+	 while (!f_obj.eof())
+	 {
+		 f_obj >> x;
+		 f_obj >> y;
+		 f_obj >> rot;
+		 f_obj >> tmp;
+		 Lever *buton = new Buton(x, y, rotation_conversion[rot], textures["button"], tmp);
+		 levers.push_back(buton);
+		 objects.push_back(buton);//dodawanie obiektow do vectora obiektow
+		 buton = nullptr;
+		 delete buton;
+	 }
+	 ///////////////////////////////////////////
+	 //////////////////////////////////////////
+
+
+	 f_obj.close();
+	 f_obj.open(path + "/Trap.txt");
+	 if (!f_obj.is_open())
+	 {
+		 std::cout << "Blad otwarcia pliku TRap" << std::endl;
+		 return false;
+	 }
+
+	 while (!f_obj.eof())
+	 {
+		 f_obj >> x;
+		 f_obj >> y;
+		 f_obj >> rot;
+		 f_obj >> tmp;
+		 
+		  
+		 objects.push_back(new Trap(x, y, rotation_conversion[rot], textures["ball"], tmp));//dodawanie obiektow do vectora obiektow
+	 }
+
 	 ///////////////////////////////////////////
 	 //////////////////////////////////////////
 	 f_obj.close();
@@ -124,19 +171,12 @@ bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures, Game
 			 f_obj >> tmp;
 			 tmpLevers.push_back(levers[tmp]);
 		 }
-		 int sum = 0;
-		 for (auto it = tmpLevers.begin(); it != tmpLevers.end(); it++)
-		 {
-			 sum+=(*it)->getValue();
-		 }
 
-		 objects.push_back(new Gateway(x, y, rotation_conversion[rot],tmpLevers,sum ,textures["gateway"]));
+
+		 objects.push_back(new Gateway(x, y, rotation_conversion[rot],tmpLevers ,textures["gateway"]));
 		 tmpLevers.clear();
 	 }
-	 for (auto it = levers.begin(); it != levers.end(); it++)
-	 {
-		 (*it)->switchLever();
-	 }
+	 
 	 ///////////////////////////////////////////
 	 //////////////////////////////////////////
 	 f_obj.close();
@@ -201,7 +241,7 @@ bool Map::loadGameObjects(	VectorGameObject &objects, MapTexture &textures, Game
 		 f_obj >> y;
 		 f_obj >> rot;
 		 GameObject *tmpField = new Field(x, y, rotation_conversion[rot], textures["checkpoint"]);
-		 (*chckpoint) = tmpField;
+		 //(*chckpoint) = tmpField;
 		 objects.push_back(tmpField);
 		 tmpField = nullptr;
 		 delete tmpField;

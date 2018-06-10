@@ -17,6 +17,7 @@ void Field::update(bool isColision)
 	if (isColision)//jesli kolizja z graczem
 	{
 		state = true;//stan aktywny
+		collision = true;
 
 		sprite.setTextureRect(sf::IntRect(state * 64, 0, size, size));//zmiana tekstury
 	}
