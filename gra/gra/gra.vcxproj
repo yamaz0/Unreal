@@ -158,7 +158,6 @@
     <ClInclude Include="Level.h" />
     <ClInclude Include="Lever.h" />
     <ClInclude Include="Map.h" />
-    <ClInclude Include="MapEditor.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Path.h" />
@@ -179,7 +178,6 @@
     <ClCompile Include="Lever.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
-    <ClCompile Include="MapEditor.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Path.cpp" />

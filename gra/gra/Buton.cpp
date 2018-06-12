@@ -20,5 +20,5 @@ void Buton::update(bool col)
 		switchLever();
 		clock.restart();	
 	}
-	std::cout << this->getState()<<std::endl;
+	//std::cout << this->getState()<<std::endl;
 }

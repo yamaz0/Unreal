@@ -1,9 +1,11 @@
 f:\unreal\gra\gra\debug\vc140.pdb
 f:\unreal\gra\gra\debug\vc140.idb
+f:\unreal\gra\gra\debug\buton.obj
 f:\unreal\gra\gra\debug\colision.obj
 f:\unreal\gra\gra\debug\engine.obj
 f:\unreal\gra\gra\debug\field.obj
 f:\unreal\gra\gra\debug\game.obj
+f:\unreal\gra\gra\debug\gameobject.obj
 f:\unreal\gra\gra\debug\gateway.obj
 f:\unreal\gra\gra\debug\level.obj
 f:\unreal\gra\gra\debug\lever.obj
@@ -15,8 +17,7 @@ f:\unreal\gra\gra\debug\path.obj
 f:\unreal\gra\gra\debug\player.obj
 f:\unreal\gra\gra\debug\text.obj
 f:\unreal\gra\gra\debug\tile.obj
-f:\unreal\gra\gra\debug\gameobject.obj
-f:\unreal\gra\gra\debug\mapeditor.obj
+f:\unreal\gra\gra\debug\trap.obj
 f:\unreal\gra\debug\gra.ilk
 f:\unreal\gra\debug\gra.exe
 f:\unreal\gra\debug\gra.pdb

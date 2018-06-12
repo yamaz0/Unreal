@@ -1,3 +1,2 @@
-mapa1(brak)
+mapa1
 mapa2
-mapa(brak)
